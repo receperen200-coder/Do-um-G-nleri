@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=yes,viewport-fit=cover">
+<meta property="og:title" content="🎂 Sana bir doğum günü kartı var!">
+<meta property="og:description" content="Açmak için tıkla, sürpriz seni bekliyor 💌">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#ff6b9d">
+<title>🎂 Doğum Günü Kartı</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&family=Caveat:wght@400;700&family=Righteous&family=Lobster&family=Comfortaa:wght@400;700&family=Merriweather:wght@400;700&family=Bebas+Neue&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+html, body { min-height: 100%; }
+body { font-family: 'Poppins', system-ui, -apple-system, sans-serif; color: #2d2d3a; -webkit-font-smoothing: antialiased; overflow-x: hidden; background: #fef6fb; }
+.hidden { display: none !important; }
+button, input, textarea { font-family: inherit; font-size: 16px; }
+
+/* ========== MOBILE-ONLY EDITOR ========== */
+#editor {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 0 0 60px;
+  background:
+    radial-gradient(circle at 8% 8%, #ffe0f0 0, transparent 42%),
+    radial-gradient(circle at 92% 15%, #e0e7ff 0, transparent 42%),
+    radial-gradient(circle at 50% 95%, #fff0d0 0, transparent 45%),
+    #fef6fb;
+  max-width: 540px;
+  margin: 0 auto;
+}
+.container { padding: 0 14px; }
+
+/* Header - küçük */
+.header { text-align: center; padding: 14px 12px 6px; }
+.logo { font-size: 1.8rem; display: inline-block; animation: bounceLogo 2.2s ease-in-out infinite; filter: drop-shadow(0 6px 14px rgba(255,107,157,.35)); }
+@keyframes bounceLogo { 0%,100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-6px) rotate(4deg); } }
+.header h1 { font-size: 1.15rem; font-weight: 800; margin-top: 2px; background: linear-gradient(135deg, #ff6b9d, #a855f7 60%, #6366f1); -webkit-background-clip: text; background-clip: text; color: transparent; letter-spacing: -.3px; }
+.subtitle { color: #8b7ba0; font-size: .72rem; margin-top: 2px; }
+
+/* Sticky Preview - üstte sabit, küçük */
+.mobile-preview {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: linear-gradient(to bottom, #fef6fb 65%, rgba(254,246,251,.94) 88%, transparent);
+  padding: 10px 14px 14px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.preview-card { width: 190px; max-width: 55vw; }
+.preview-label { font-size: .6rem; font-weight: 700; color: #a08cb8; text-transform: uppercase; letter-spacing: .14em; margin-bottom: 4px; text-align: center; }
+
+/* SEKMELER - yatay scroll */
+.tabs { display: flex; gap: 3px; background: #f5eefb; border-radius: 12px; padding: 4px; margin-bottom: 12px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; position: relative; z-index: 5; }
+.tabs::-webkit-scrollbar { display: none; }
+.tab { flex: 0 0 auto; min-width: 78px; padding: 11px 8px; border: none; border-radius: 9px; background: transparent; color: #8b7ba0; font-size: .72rem; font-weight: 600; cursor: pointer; transition: all .2s; white-space: nowrap; display: flex; align-items: center; justify-content: center; gap: 3px; }
+.tab.active { background: #fff; color: #7c3aed; box-shadow: 0 2px 8px rgba(168,85,247,.18); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; animation: fadeTab .22s ease; }
+@keyframes fadeTab { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+.panel { background: #fff; border-radius: 18px; padding: 14px; box-shadow: 0 8px 30px rgba(150,100,200,.1); border: 1px solid rgba(255,255,255,.8); }
+
+/* FORMLAR */
+.section { margin-bottom: 14px; }
+.section:last-child { margin-bottom: 0; }
+.section-title { font-size: .68rem; font-weight: 700; color: #a08cb8; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 8px; }
+.field { margin-bottom: 11px; }
+.field:last-child { margin-bottom: 0; }
+.field label { display: block; font-size: .76rem; font-weight: 600; margin-bottom: 6px; color: #6b5b7a; }
+.field input[type="text"], .field textarea { width: 100%; padding: 13px 14px; border: 2px solid #eee5f3; border-radius: 12px; font-size: 16px; background: #faf7fd; color: #2d2d3a; transition: all .2s; outline: none; -webkit-appearance: none; appearance: none; }
+.field input[type="text"]:focus, .field textarea:focus { border-color: #c084fc; background: #fff; box-shadow: 0 0 0 4px rgba(192,132,252,.13); }
+.field textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
+.field input::placeholder, .field textarea::placeholder { color: #b8a8c8; }
+.row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+@media (max-width: 380px) { .row-2 { grid-template-columns: 1fr; } }
+
+.warn-box { padding: 12px 13px; border-radius: 11px; background: #fef3c7; border: 1.5px solid #fbbf24; font-size: .78rem; line-height: 1.5; color: #78350f; margin-bottom: 10px; }
+.warn-box b { color: #92400e; }
+.ok-box { padding: 12px 13px; border-radius: 11px; background: #dcfce7; border: 1.5px solid #22c55e; font-size: .78rem; line-height: 1.5; color: #14532d; margin-bottom: 10px; }
+.ok-box b { color: #166534; }
+.info-box { padding: 12px 13px; border-radius: 11px; background: #dbeafe; border: 1.5px solid #3b82f6; font-size: .78rem; line-height: 1.5; color: #1e40af; margin-bottom: 10px; }
+.info-box b { color: #1e3a8a; }
+
+.photo-upload { border: 2px dashed #d8b4fe; border-radius: 14px; padding: 20px 16px; text-align: center; background: #faf7fd; cursor: pointer; transition: all .2s; position: relative; overflow: hidden; }
+.photo-upload:active { background: #f3e8ff; border-color: #a855f7; }
+.photo-upload input[type="file"] { display: none; }
+.photo-upload .pu-icon { font-size: 2rem; display: block; margin-bottom: 6px; }
+.photo-upload .pu-text { font-size: .9rem; color: #8b5cf6; font-weight: 600; }
+.photo-upload .pu-sub { font-size: .72rem; color: #a08cb8; margin-top: 2px; }
+.photo-preview { position: relative; display: inline-block; margin-top: 12px; }
+.photo-preview img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid #a855f7; box-shadow: 0 6px 16px rgba(168,85,247,.25); }
+.photo-preview button { position: absolute; top: -6px; right: -6px; width: 30px; height: 30px; border-radius: 50%; background: #ef4444; color: #fff; border: 2px solid #fff; cursor: pointer; font-size: 1rem; display: grid; place-items: center; box-shadow: 0 2px 6px rgba(0,0,0,.2); }
+
+.themes { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+.theme-swatch { aspect-ratio: 1; border-radius: 50%; cursor: pointer; border: 3px solid transparent; transition: transform .18s, box-shadow .18s; padding: 0; outline: none; }
+.theme-swatch:active { transform: scale(.95); }
+.theme-swatch.active { border-color: #fff; box-shadow: 0 0 0 3px #a855f7, 0 6px 16px rgba(168,85,247,.35); transform: scale(1.06); }
+
+.color-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; }
+.color-item { text-align: center; }
+.color-item label { display: block; font-size: .7rem; font-weight: 600; color: #6b5b7a; margin-bottom: 5px; }
+.color-item input[type="color"] { width: 100%; height: 44px; border: 2px solid #eee5f3; border-radius: 10px; cursor: pointer; padding: 3px; background: #faf7fd; -webkit-appearance: none; appearance: none; }
+.color-item input[type="color"]::-webkit-color-swatch { border-radius: 6px; border: none; }
+.reset-btn { width: 100%; margin-top: 8px; padding: 11px; border-radius: 10px; border: 1.5px dashed #d8b4fe; background: #faf7fd; color: #8b5cf6; font-size: .8rem; font-weight: 600; cursor: pointer; }
+.reset-btn:active { background: #f3e8ff; }
+
+.presets { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.preset-btn { padding: 10px 4px; border-radius: 10px; border: 2px solid #eee5f3; background: #faf7fd; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 3px; font-size: .7rem; font-weight: 600; color: #6b5b7a; }
+.preset-btn:active { border-color: #d8b4fe; transform: translateY(-1px); }
+.preset-btn .p-emoji { font-size: 1.2rem; }
+
+.grid-btns { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 7px; }
+.mini-btn { padding: 11px 6px; border-radius: 10px; border: 2px solid #eee5f3; background: #faf7fd; cursor: pointer; transition: all .18s; font-size: .74rem; font-weight: 600; color: #6b5b7a; display: flex; flex-direction: column; align-items: center; gap: 2px; line-height: 1.2; min-height: 52px; justify-content: center; }
+.mini-btn:active { transform: scale(.96); }
+.mini-btn.active { border-color: #a855f7; background: linear-gradient(135deg, #f3e8ff, #fce7f3); color: #7c3aed; box-shadow: 0 2px 8px rgba(168,85,247,.18); }
+.mini-btn .mi-ico { font-size: 1.15rem; }
+
+.font-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 6px; }
+.font-btn { padding: 11px 6px; border-radius: 9px; border: 2px solid #eee5f3; background: #faf7fd; font-size: .85rem; cursor: pointer; color: #4a3a5a; min-height: 44px; }
+.font-btn:active { transform: scale(.96); }
+.font-btn.active { border-color: #a855f7; background: #f3e8ff; box-shadow: 0 2px 10px rgba(168,85,247,.2); color: #6b21a8; }
+
+.slider-row { display: flex; align-items: center; gap: 12px; }
+.slider-row input[type="range"] { flex: 1; -webkit-appearance: none; appearance: none; height: 6px; border-radius: 3px; background: linear-gradient(to right, #c084fc, #a855f7); outline: none; }
+.slider-row input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 26px; height: 26px; border-radius: 50%; background: #fff; border: 3px solid #a855f7; cursor: pointer; box-shadow: 0 2px 6px rgba(168,85,247,.4); }
+.slider-row input[type="range"]::-moz-range-thumb { width: 26px; height: 26px; border-radius: 50%; background: #fff; border: 3px solid #a855f7; cursor: pointer; }
+.slider-val { min-width: 54px; text-align: right; font-size: .82rem; font-weight: 700; color: #a855f7; }
+
+.align-group { display: flex; gap: 6px; background: #f5eefb; border-radius: 12px; padding: 5px; }
+.align-btn { flex: 1; padding: 13px; border: none; border-radius: 8px; background: transparent; color: #8b7ba0; font-size: 1.15rem; cursor: pointer; }
+.align-btn.active { background: #fff; color: #7c3aed; box-shadow: 0 2px 6px rgba(168,85,247,.18); }
+
+.emojis, .stickers { display: flex; gap: 7px; flex-wrap: wrap; }
+.emoji-btn, .sticker-btn { width: 46px; height: 46px; border-radius: 11px; border: 2px solid #eee5f3; background: #faf7fd; cursor: pointer; font-size: 1.4rem; line-height: 1; padding: 0; position: relative; }
+.emoji-btn:active, .sticker-btn:active { transform: scale(.94); }
+.emoji-btn.active, .sticker-btn.active { border-color: #a855f7; background: #f3e8ff; box-shadow: 0 4px 12px rgba(168,85,247,.22); }
+.sticker-btn.active::after { content: '✓'; position: absolute; top: -5px; right: -5px; width: 16px; height: 16px; border-radius: 50%; background: #22c55e; color: #fff; font-size: 10px; font-weight: 700; display: grid; place-items: center; }
+
+.toggle-row { display: flex; align-items: center; justify-content: space-between; padding: 14px; border-radius: 12px; background: #faf7fd; border: 2px solid #eee5f3; cursor: pointer; user-select: none; margin-bottom: 8px; gap: 12px; }
+.toggle-row span { font-size: .85rem; font-weight: 600; color: #6b5b7a; flex: 1; }
+.toggle { width: 46px; height: 26px; border-radius: 999px; background: #ddd0e8; position: relative; transition: background .2s; flex-shrink: 0; }
+.toggle::after { content: ''; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: #fff; transition: transform .2s; box-shadow: 0 1px 4px rgba(0,0,0,.15); }
+.toggle-row.active .toggle { background: #a855f7; }
+.toggle-row.active .toggle::after { transform: translateX(20px); }
+
+.btn-primary { width: 100%; padding: 16px; border: none; border-radius: 14px; background: linear-gradient(135deg, #ff6b9d, #a855f7); color: #fff; font-size: 1rem; font-weight: 700; cursor: pointer; box-shadow: 0 10px 26px rgba(168,85,247,.3); margin-top: 12px; }
+.btn-primary:active { transform: scale(.98); }
+.btn-primary.alt { background: linear-gradient(135deg, #22c55e, #16a34a); box-shadow: 0 10px 26px rgba(34,197,94,.3); }
+.btn-secondary { padding: 14px; border: 2px solid #eee5f3; border-radius: 12px; background: #fff; color: #7c3aed; font-size: .88rem; font-weight: 600; cursor: pointer; }
+.btn-secondary:active { transform: scale(.97); background: #faf7fd; }
+
+/* Link kutusu */
+.link-box { margin-top: 12px; padding: 14px; border-radius: 14px; background: linear-gradient(135deg, #f5f0ff, #fff0f8); border: 1.5px dashed #d8b4fe; animation: popIn .35s cubic-bezier(.34,1.56,.64,1) both; }
+@keyframes popIn { from { opacity: 0; transform: scale(.95); } to { opacity: 1; transform: scale(1); } }
+.link-box > label { display: block; font-size: .82rem; font-weight: 700; color: #7c3aed; margin-bottom: 10px; text-align: center; }
+.link-row { display: flex; gap: 8px; margin-bottom: 10px; }
+.link-row input { flex: 1; min-width: 0; padding: 12px 14px; border-radius: 11px; border: 2px solid #e9d5ff; background: #fff; font-size: 14px; color: #5b21b6; outline: none; }
+.link-row button { flex-shrink: 0; width: 52px; border: none; border-radius: 11px; background: #a855f7; color: #fff; font-size: 1.15rem; cursor: pointer; display: grid; place-items: center; }
+.link-row button:active { transform: scale(.94); }
+.link-row button.copied { background: #22c55e; }
+
+/* Paylaşım butonları - mobilde BÜYÜK */
+.share-big-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+.share-big { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 16px 12px; border-radius: 14px; text-decoration: none; font-size: .88rem; font-weight: 700; cursor: pointer; min-height: 84px; border: none; font-family: inherit; }
+.share-big:active { transform: scale(.96); }
+.share-big .big-ico { font-size: 1.8rem; }
+.share-big.wa { background: #25d366; color: #fff; box-shadow: 0 8px 20px rgba(37,211,102,.35); }
+.share-big.email { background: linear-gradient(135deg, #6366f1, #8b5cf6); color: #fff; box-shadow: 0 8px 20px rgba(99,102,241,.35); }
+
+/* Kart İşlemleri */
+.action-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+.action-big { padding: 15px 10px; border: 2px solid #e9d5ff; border-radius: 12px; background: #fff; color: #7c3aed; font-size: .88rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; }
+.action-big:active { transform: scale(.96); background: #faf5ff; }
+
+.hint { font-size: .74rem; color: #8b7ba0; margin-top: 8px; line-height: 1.5; }
+
+/* KART GÖRÜNÜMÜ */
+.birthday-card, .preview-card {
+  width: 100%; aspect-ratio: 3 / 4; padding: 7% 6% 6%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; position: relative; overflow: hidden;
+  transition: background .35s, color .35s, aspect-ratio .3s;
+  container-type: inline-size;
+  --accent: #e91e63;
+  --title-scale: 1; --name-scale: 1; --msg-scale: 1;
+  --letter-spacing: 0px; --line-height: 1.5;
+  --photo-size: 22;
+  --title-weight: 400; --name-weight: 400; --msg-weight: 400;
+  --card-tilt: 0deg;
+  rotate: var(--card-tilt);
+  box-shadow: 0 20px 50px rgba(80,40,120,var(--shadow-alpha, .22));
+}
+.ar-square { aspect-ratio: 1 / 1 !important; }
+.ar-story { aspect-ratio: 9 / 16 !important; max-width: 300px; }
+.ar-landscape { aspect-ratio: 4 / 3 !important; max-width: 460px; }
+
+.bc-pattern { position: absolute; inset: 0; pointer-events: none; mix-blend-mode: soft-light; z-index: 0; }
+.bc-content { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; gap: 1cqw; }
+.bc-photo-wrap { display: none; margin-bottom: 2cqw; }
+.bc-photo-wrap.has-photo { display: block; }
+.bc-photo { width: calc(var(--photo-size) * 1cqw); height: calc(var(--photo-size) * 1cqw); object-fit: cover; border-radius: 50%; border: 2cqw solid rgba(255,255,255,.5); box-shadow: 0 4cqw 8cqw rgba(0,0,0,.2); display: block; margin: 0 auto; }
+.bc-photo[data-shape="rounded"] { border-radius: 20%; }
+.bc-photo[data-shape="square"] { border-radius: 8%; }
+.bc-photo[data-shape="hexagon"] { clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); border-radius: 0; border: none !important; }
+.bc-emoji { font-size: 13cqw; line-height: 1; margin-bottom: 1cqw; display: inline-block; animation: bcBounce 2.5s ease-in-out infinite; }
+@keyframes bcBounce { 0%,100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-6px) rotate(3deg); } }
+.bc-age { font-size: 3.2cqw; font-weight: 600; color: var(--accent); opacity: .9; margin-bottom: .8cqw; font-family: 'Poppins', sans-serif; }
+.bc-title { font-size: calc(7cqw * var(--title-scale)); line-height: 1.2; font-weight: var(--title-weight); word-break: break-word; letter-spacing: var(--letter-spacing); }
+.bc-name { font-size: calc(11.5cqw * var(--name-scale)); line-height: 1.05; margin-top: .8cqw; color: var(--accent); word-break: break-word; letter-spacing: var(--letter-spacing); font-weight: var(--name-weight); }
+.bc-date { font-size: 2.9cqw; opacity: .75; margin-top: 1.5cqw; font-family: 'Poppins', sans-serif; font-style: italic; letter-spacing: .05em; }
+.bc-msg { font-size: calc(3.7cqw * var(--msg-scale)); line-height: var(--line-height); margin-top: 3cqw; max-width: 92%; opacity: .87; white-space: pre-wrap; word-break: break-word; letter-spacing: var(--letter-spacing); font-weight: var(--msg-weight); -webkit-line-clamp: 6; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; }
+.bc-from { margin-top: 3.5cqw; display: flex; flex-direction: column; gap: .3cqw; opacity: .8; font-size: 3.2cqw; font-family: 'Poppins', sans-serif; }
+.bc-from b { font-size: 4cqw; color: var(--accent); }
+
+.bc-cake { margin-top: 2cqw; display: flex; justify-content: center; gap: 3cqw; }
+.candle { position: relative; width: 2.8cqw; height: 8cqw; cursor: pointer; }
+.candle:active { transform: translateY(-1cqw); }
+.candle .candle-body { position: absolute; bottom: 0; width: 100%; height: 6cqw; background: linear-gradient(180deg, #ff6b9d, #e91e63); border-radius: .5cqw; box-shadow: inset -0.4cqw 0 .6cqw rgba(0,0,0,.15); }
+.candle .candle-body::before { content: ''; position: absolute; top: 20%; left: 0; right: 0; height: 1cqw; background: repeating-linear-gradient(45deg, #fff 0, #fff 0.5cqw, transparent 0.5cqw, transparent 1cqw); opacity: .5; }
+.candle .flame { position: absolute; top: -1cqw; left: 50%; transform: translateX(-50%); width: 2.2cqw; height: 3cqw; background: radial-gradient(circle at 50% 70%, #fff8a0 0%, #ffd93d 40%, #ff9a00 75%, transparent 100%); border-radius: 50% 50% 30% 30%; animation: flicker .18s infinite alternate; box-shadow: 0 0 3cqw rgba(255,180,0,.8); filter: blur(.3cqw); }
+@keyframes flicker { 0% { transform: translateX(-50%) scale(1, 1); opacity: 1; } 100% { transform: translateX(-50%) scale(.85, 1.1); opacity: .8; } }
+.candle.blown .flame { display: none; }
+.candle.blown::after { content: ''; position: absolute; top: -2cqw; left: 50%; transform: translateX(-50%); width: 2cqw; height: 2cqw; background: rgba(200,200,200,.6); border-radius: 50%; animation: smoke 1.5s ease-out forwards; filter: blur(.5cqw); }
+@keyframes smoke { 0% { opacity: 1; transform: translate(-50%, 0) scale(.5); } 100% { opacity: 0; transform: translate(-50%, -8cqw) scale(1.5); } }
+.cake-hint { font-size: 2.9cqw; color: var(--accent); opacity: .8; margin-top: 1.5cqw; font-family: 'Poppins', sans-serif; font-weight: 500; }
+
+.blow-btn { margin-top: 3cqw; padding: 2.5cqw 5cqw; border-radius: 999px; border: 1.5px solid var(--accent); background: rgba(255,255,255,.9); color: var(--accent); font-size: 3.2cqw; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 2cqw; font-family: 'Poppins', sans-serif; }
+.blow-btn:active { transform: scale(.94); }
+.blow-btn.listening { background: var(--accent); color: #fff; animation: pulseBlow 1.2s ease-in-out infinite; }
+@keyframes pulseBlow { 0%,100% { box-shadow: 0 0 0 0 rgba(233,30,99,.5); } 50% { box-shadow: 0 0 0 4cqw rgba(233,30,99,0); } }
+
+.bc-title, .bc-name { position: relative; }
+.effect-shadow .bc-title, .effect-shadow .bc-name { text-shadow: 0.5cqw 0.5cqw 1cqw rgba(0,0,0,.35); }
+.effect-glow .bc-title, .effect-glow .bc-name { text-shadow: 0 0 2cqw rgba(255,255,255,.6), 0 0 4cqw var(--accent), 0 0 6cqw var(--accent); }
+.effect-outline .bc-title, .effect-outline .bc-name { -webkit-text-stroke: 0.3cqw currentColor; color: transparent; -webkit-text-fill-color: transparent; }
+.effect-outline .bc-name { -webkit-text-stroke: 0.35cqw var(--accent); }
+.effect-gradient .bc-title { background: linear-gradient(135deg, var(--accent), #fff, var(--accent)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.effect-gradient .bc-name { background: linear-gradient(135deg, var(--accent), #ffffff 40%, var(--accent) 90%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+.layout-polaroid { padding: 5cqw 5cqw 12cqw !important; background: #fafafa !important; color: #333 !important; justify-content: flex-start !important; }
+.layout-polaroid .bc-content { justify-content: flex-start; padding-top: 2cqw; }
+.layout-polaroid .bc-photo-wrap { display: block; width: 100%; margin-bottom: 3cqw; }
+.layout-polaroid .bc-photo { width: 100% !important; height: auto !important; aspect-ratio: 1; border-radius: 1cqw !important; box-shadow: 0 2cqw 4cqw rgba(0,0,0,.15) !important; margin: 0 !important; clip-path: none !important; }
+.layout-polaroid .bc-emoji { display: none; }
+.layout-polaroid .bc-title { font-family: 'Caveat', cursive !important; font-size: 7cqw !important; color: #333 !important; -webkit-text-fill-color: #333 !important; background: none !important; -webkit-text-stroke: 0 !important; text-shadow: none !important; }
+.layout-polaroid .bc-name { font-family: 'Caveat', cursive !important; font-size: 9cqw !important; color: var(--accent) !important; -webkit-text-fill-color: var(--accent) !important; background: none !important; -webkit-text-stroke: 0 !important; text-shadow: none !important; }
+.layout-polaroid .bc-msg { font-family: 'Poppins', sans-serif !important; font-size: 3.2cqw !important; color: #555 !important; margin-top: 2cqw !important; opacity: 1 !important; }
+.layout-polaroid .bc-age { color: var(--accent); opacity: 1; }
+.layout-polaroid .bc-from { color: #666; opacity: 1; }
+
+.layout-minimal { border: 0.5cqw solid var(--accent); background: rgba(255,255,255,.08) !important; backdrop-filter: blur(10px); }
+.layout-minimal .bc-emoji { animation: none; }
+.layout-minimal .bc-title { letter-spacing: .1em; text-transform: uppercase; font-size: 4cqw !important; }
+.layout-minimal .bc-name { letter-spacing: .05em; }
+
+/* KART GÖRÜNÜMÜ */
+#cardView { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px 14px; position: relative; overflow: hidden; transition: background .5s; }
+#confetti { position: fixed; inset: 0; pointer-events: none; z-index: 10; }
+.floating-stickers { position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
+.floating-sticker { position: absolute; font-size: 2rem; opacity: .55; filter: drop-shadow(0 4px 12px rgba(0,0,0,.15)); }
+@keyframes floatA { 0%,100% { transform: translate(0,0) rotate(-6deg); } 50% { transform: translate(10px,-16px) rotate(6deg); } }
+@keyframes floatB { 0%,100% { transform: translate(0,0) rotate(8deg); } 50% { transform: translate(-12px,-14px) rotate(-8deg); } }
+@keyframes floatC { 0%,100% { transform: translate(0,0) rotate(-4deg); } 50% { transform: translate(14px,-10px) rotate(4deg); } }
+
+.gift-stage, .card-stage { display: flex; flex-direction: column; align-items: center; gap: 18px; width: 100%; max-width: 480px; z-index: 2; position: relative; }
+.gift { font-size: 100px; line-height: 1; animation: giftFloat 2.6s ease-in-out infinite; filter: drop-shadow(0 24px 30px rgba(0,0,0,.28)); cursor: pointer; user-select: none; }
+@keyframes giftFloat { 0%,100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-18px) rotate(5deg); } }
+.gift-title { font-family: 'Pacifico', cursive; font-size: 1.4rem; color: #fff; text-shadow: 0 4px 20px rgba(0,0,0,.35); text-align: center; font-weight: 400; padding: 0 16px; }
+.btn-open { padding: 16px 40px; border-radius: 999px; border: none; cursor: pointer; font-size: 1.05rem; font-weight: 700; background: #fff; color: #e91e63; box-shadow: 0 14px 36px rgba(0,0,0,.28); }
+.btn-open:active { transform: scale(.96); }
+
+@keyframes cardPop { 0% { opacity: 0; transform: scale(0.6) rotate(-8deg); } 100% { opacity: 1; transform: scale(1) rotate(0); } }
+@keyframes cardSlide { 0% { opacity: 0; transform: translateY(90px); } 100% { opacity: 1; transform: translateY(0); } }
+@keyframes cardFlip { 0% { opacity: 0; transform: perspective(1200px) rotateY(-90deg); } 100% { opacity: 1; transform: perspective(1200px) rotateY(0); } }
+@keyframes cardZoom { 0% { opacity: 0; transform: scale(2); } 100% { opacity: 1; transform: scale(1); } }
+@keyframes cardBounce { 0% { opacity: 0; transform: scale(0.3); } 55% { opacity: 1; transform: scale(1.05); } 75% { transform: scale(0.96); } 100% { transform: scale(1); } }
+@keyframes cardFade { 0% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes cardDrop { 0% { opacity: 0; transform: translateY(-120px) rotate(-20deg); } 70% { opacity: 1; transform: translateY(20px) rotate(4deg); } 100% { transform: translateY(0) rotate(0); } }
+@keyframes cardSpin { 0% { opacity: 0; transform: rotate(-180deg) scale(.5); } 100% { opacity: 1; transform: rotate(0) scale(1); } }
+.birthday-card.anim-pop { animation: cardPop 0.9s cubic-bezier(.34,1.56,.64,1) both; }
+.birthday-card.anim-slide { animation: cardSlide 0.8s cubic-bezier(.34,1.56,.64,1) both; }
+.birthday-card.anim-flip { animation: cardFlip 0.9s cubic-bezier(.4,0,.2,1) both; }
+.birthday-card.anim-zoom { animation: cardZoom 0.65s cubic-bezier(.34,1.56,.64,1) both; }
+.birthday-card.anim-bounce { animation: cardBounce 1s cubic-bezier(.34,1.56,.64,1) both; }
+.birthday-card.anim-fade { animation: cardFade 0.8s ease both; }
+.birthday-card.anim-drop { animation: cardDrop 1.1s cubic-bezier(.34,1.56,.64,1) both; }
+.birthday-card.anim-spin { animation: cardSpin 1s cubic-bezier(.34,1.56,.64,1) both; }
+
+.btn-create { padding: 13px 22px; border-radius: 999px; background: rgba(255,255,255,.16); border: 1.5px solid rgba(255,255,255,.5); color: #fff; text-decoration: none; font-size: .85rem; font-weight: 600; backdrop-filter: blur(10px); cursor: pointer; font-family: inherit; }
+.btn-create:active { background: rgba(255,255,255,.3); transform: scale(.96); }
+
+.music-btn { position: fixed; bottom: max(18px, env(safe-area-inset-bottom)); right: 18px; width: 54px; height: 54px; border-radius: 50%; border: none; background: rgba(255,255,255,.9); box-shadow: 0 8px 24px rgba(0,0,0,.25); font-size: 1.3rem; cursor: pointer; z-index: 20; backdrop-filter: blur(8px); }
+.music-btn:active { transform: scale(.94); }
+.music-btn.playing { animation: pulseMusic 1.4s ease-in-out infinite; }
+@keyframes pulseMusic { 0%,100% { box-shadow: 0 8px 24px rgba(0,0,0,.25), 0 0 0 0 rgba(168,85,247,.5); } 50% { box-shadow: 0 8px 24px rgba(0,0,0,.25), 0 0 0 14px rgba(168,85,247,0); } }
+
+.toast { position: fixed; bottom: max(24px, env(safe-area-inset-bottom)); left: 50%; transform: translate(-50%, 100px); background: #22c55e; color: #fff; padding: 12px 22px; border-radius: 999px; font-size: .85rem; font-weight: 600; box-shadow: 0 10px 30px rgba(34,197,94,.4); z-index: 100; opacity: 0; pointer-events: none; max-width: 88vw; text-align: center; transition: transform .35s cubic-bezier(.34,1.56,.64,1), opacity .3s; }
+.toast.show { transform: translate(-50%, 0); opacity: 1; }
+
+.pattern-dots { background-image: radial-gradient(circle at 8px 8px, rgba(255,255,255,.9) 2px, transparent 2.5px); background-size: 20px 20px; }
+.pattern-stripes { background-image: repeating-linear-gradient(45deg, transparent 0, transparent 12px, rgba(255,255,255,.5) 12px, rgba(255,255,255,.5) 14px); }
+.pattern-hearts { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='rgba(255,255,255,0.7)'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E"); background-size: 32px 32px; }
+.pattern-stars { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='rgba(255,255,255,0.75)'%3E%3Cpath d='M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'/%3E%3C/svg%3E"); background-size: 28px 28px; }
+.pattern-circles { background-image: radial-gradient(circle at 30% 30%, rgba(255,255,255,.6) 3px, transparent 4px), radial-gradient(circle at 70% 70%, rgba(255,255,255,.4) 4px, transparent 5px); background-size: 40px 40px, 55px 55px; }
+.pattern-confetti { background-image: radial-gradient(circle at 10% 20%, rgba(255,255,255,.7) 2px, transparent 3px), radial-gradient(circle at 80% 15%, rgba(255,220,220,.9) 2.5px, transparent 3.5px), radial-gradient(circle at 25% 80%, rgba(255,255,255,.6) 2px, transparent 3px), radial-gradient(circle at 90% 75%, rgba(255,240,200,.8) 2.5px, transparent 3.5px); background-size: 80px 80px; }
+.pattern-waves { background-image: repeating-linear-gradient(0deg, transparent, transparent 15px, rgba(255,255,255,.4) 15px, rgba(255,255,255,.4) 16px), repeating-linear-gradient(90deg, transparent, transparent 15px, rgba(255,255,255,.2) 15px, rgba(255,255,255,.2) 16px); }
+
+.typing::after { content: '|'; animation: blinkCursor .7s infinite; color: var(--accent); }
+@keyframes blinkCursor { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+
+@supports (padding: max(0px)) {
+  body { padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }
+}
+</style>
+</head>
+<body>
+
+<div id="editor">
+  <header class="header">
+    <div class="logo">🎂</div>
+    <h1>Doğum Günü Kartı</h1>
+    <p class="subtitle">Foto, pasta, efektler 💌</p>
+  </header>
+
+  <!-- Sticky küçük önizleme -->
+  <div class="mobile-preview">
+    <div class="preview-card" id="previewCard">
+      <div class="bc-pattern" id="pcPattern"></div>
+      <div class="bc-content">
+        <div class="bc-photo-wrap" id="pcPhotoWrap"><img class="bc-photo" id="pcPhoto" data-shape="circle" alt=""></div>
+        <div class="bc-emoji" id="pcEmoji">🎂</div>
+        <div class="bc-age hidden" id="pcAge"></div>
+        <div class="bc-title" id="pcTitle">İyi ki doğdun</div>
+        <div class="bc-name" id="pcName">İsim</div>
+        <div class="bc-date hidden" id="pcDate"></div>
+        <p class="bc-msg" id="pcMsg">Mesajın burada görünecek...</p>
+        <div class="bc-from"><span>Sevgilerle,</span><b id="pcFrom">Gönderen</b></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <nav class="tabs">
+      <button class="tab active" data-tab="content">📝 İçerik</button>
+      <button class="tab" data-tab="photo">📸 Foto</button>
+      <button class="tab" data-tab="design">🎨 Tasarım</button>
+      <button class="tab" data-tab="type">✍️ Yazı</button>
+      <button class="tab" data-tab="fx">✨ Efekt</button>
+      <button class="tab" data-tab="share">📤 Paylaş</button>
+    </nav>
+
+    <div class="panel">
+      <div class="tab-panel active" data-panel="content">
+        <div class="section">
+          <div class="row-2">
+            <div class="field"><label for="toInput">Kime? 🎯</label><input id="toInput" type="text" placeholder="Ahmet" maxlength="40" autocomplete="off"></div>
+            <div class="field"><label for="fromInput">Kimden? 💫</label><input id="fromInput" type="text" placeholder="Ayşe" maxlength="40" autocomplete="off"></div>
+          </div>
+          <div class="row-2">
+            <div class="field"><label for="titleInput">Başlık</label><input id="titleInput" type="text" placeholder="İyi ki doğdun" maxlength="40" autocomplete="off"></div>
+            <div class="field"><label for="ageInput">Yaş</label><input id="ageInput" type="text" placeholder="25" maxlength="3" autocomplete="off" inputmode="numeric"></div>
+          </div>
+          <div class="field"><label for="dateInput">Tarih (opsiyonel)</label><input id="dateInput" type="text" placeholder="15 Mayıs 2024" maxlength="30" autocomplete="off"></div>
+          <div class="field"><label for="msgInput">Mesajın ✍️</label><textarea id="msgInput" placeholder="Güzel dileklerini yaz..." maxlength="300"></textarea></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel="photo">
+        <div class="section">
+          <div class="section-title">Fotoğraf Yükle</div>
+          <div class="photo-upload" id="photoUpload">
+            <input type="file" id="photoInput" accept="image/*">
+            <span class="pu-icon">📸</span>
+            <div class="pu-text">Fotoğraf yükle</div>
+            <div class="pu-sub">Kartın üstünde görünecek</div>
+          </div>
+          <div class="photo-preview hidden" id="photoPreview" style="display:none;text-align:center;">
+            <img id="photoPreviewImg" alt="">
+            <button id="removePhotoBtn">×</button>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Yükleme Kalitesi</div>
+          <div class="grid-btns" id="qualityPicker">
+            <button class="mini-btn" data-quality="300"><span class="mi-ico">🔹</span>Küçük</button>
+            <button class="mini-btn active" data-quality="500"><span class="mi-ico">🔷</span>Orta</button>
+            <button class="mini-btn" data-quality="800"><span class="mi-ico">💎</span>Büyük</button>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Fotoğraf Boyutu</div>
+          <div class="slider-row"><input type="range" id="photoSize" min="10" max="45" value="22"><span class="slider-val" id="photoSizeVal">22</span></div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Fotoğraf Şekli</div>
+          <div class="grid-btns" id="shapePicker">
+            <button class="mini-btn active" data-shape="circle"><span class="mi-ico">⭕</span>Daire</button>
+            <button class="mini-btn" data-shape="rounded"><span class="mi-ico">🔲</span>Yuvarlak</button>
+            <button class="mini-btn" data-shape="square"><span class="mi-ico">⬛</span>Kare</button>
+            <button class="mini-btn" data-shape="hexagon"><span class="mi-ico">⬡</span>Altıgen</button>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Fotoğraf Kenarlığı</div>
+          <div class="field"><label>Kalınlık</label><div class="slider-row"><input type="range" id="photoBorderWidth" min="0" max="8" value="2"><span class="slider-val" id="photoBorderWidthVal">2</span></div></div>
+          <div class="field"><label>Renk</label><input type="color" id="photoBorderColor" value="#ffffff" style="width:100%;height:44px;border:2px solid #eee5f3;border-radius:10px;cursor:pointer;padding:3px;background:#faf7fd;"></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel="design">
+        <div class="section"><div class="section-title">Hazır Şablonlar</div><div class="presets" id="presets"></div></div>
+        <div class="section"><div class="section-title">Temalar</div><div class="themes" id="themes"></div></div>
+        <div class="section">
+          <div class="section-title">Renkler</div>
+          <div class="color-row">
+            <div class="color-item"><label>Vurgu</label><input type="color" id="accentColor"></div>
+            <div class="color-item"><label>Arka Plan</label><input type="color" id="cardBgColor"></div>
+            <div class="color-item"><label>Yazı</label><input type="color" id="textColor"></div>
+          </div>
+          <button class="reset-btn" id="resetColors">🔄 Tema renklerine dön</button>
+        </div>
+        <div class="section"><div class="section-title">Arka Plan Deseni</div><div class="grid-btns" id="patternPicker"></div></div>
+        <div class="section">
+          <div class="section-title">Kart Düzeni</div>
+          <div class="grid-btns" id="layoutPicker">
+            <button class="mini-btn active" data-layout="classic"><span class="mi-ico">📄</span>Klasik</button>
+            <button class="mini-btn" data-layout="polaroid"><span class="mi-ico">🖼️</span>Polaroid</button>
+            <button class="mini-btn" data-layout="minimal"><span class="mi-ico">✨</span>Minimal</button>
+          </div>
+        </div>
+        <div class="section">
+          <div class="section-title">Kart Oranı</div>
+          <div class="grid-btns" id="aspectPicker">
+            <button class="mini-btn active" data-aspect="portrait"><span class="mi-ico">📱</span>Dikey</button>
+            <button class="mini-btn" data-aspect="square"><span class="mi-ico">⏹️</span>Kare</button>
+            <button class="mini-btn" data-aspect="story"><span class="mi-ico">📲</span>Story</button>
+            <button class="mini-btn" data-aspect="landscape"><span class="mi-ico">🖥️</span>Yatay</button>
+          </div>
+        </div>
+        <div class="section"><div class="section-title">Kenar Yuvarlaklığı</div><div class="slider-row"><input type="range" id="borderRadius" min="0" max="15" value="6"><span class="slider-val" id="borderRadiusVal">6</span></div></div>
+        <div class="section"><div class="section-title">Kart Eğimi</div><div class="slider-row"><input type="range" id="cardTilt" min="-5" max="5" step="0.5" value="0"><span class="slider-val" id="cardTiltVal">0°</span></div></div>
+        <div class="section"><div class="section-title">Kart Gölgesi</div><div class="slider-row"><input type="range" id="cardShadow" min="0" max="200" value="100"><span class="slider-val" id="cardShadowVal">100%</span></div></div>
+      </div>
+
+      <div class="tab-panel" data-panel="type">
+        <div class="section"><div class="section-title">Başlık Fontu</div><div class="font-grid" id="titleFontPicker"></div></div>
+        <div class="section"><div class="section-title">İsim Fontu</div><div class="font-grid" id="nameFontPicker"></div></div>
+        <div class="section"><div class="section-title">Mesaj Fontu</div><div class="font-grid" id="msgFontPicker"></div></div>
+        <div class="section">
+          <div class="section-title">Boyutlar</div>
+          <div class="field"><label>Başlık</label><div class="slider-row"><input type="range" id="titleSize" min="50" max="200" value="100"><span class="slider-val" id="titleSizeVal">100%</span></div></div>
+          <div class="field"><label>İsim</label><div class="slider-row"><input type="range" id="nameSize" min="50" max="200" value="100"><span class="slider-val" id="nameSizeVal">100%</span></div></div>
+          <div class="field"><label>Mesaj</label><div class="slider-row"><input type="range" id="msgSize" min="50" max="200" value="100"><span class="slider-val" id="msgSizeVal">100%</span></div></div>
+        </div>
+        <div class="section">
+          <div class="section-title">Aralıklar</div>
+          <div class="field"><label>Harf Aralığı</label><div class="slider-row"><input type="range" id="letterSpacing" min="-2" max="8" value="0"><span class="slider-val" id="letterSpacingVal">0</span></div></div>
+          <div class="field"><label>Satır Yüksekliği</label><div class="slider-row"><input type="range" id="lineHeight" min="100" max="220" value="150"><span class="slider-val" id="lineHeightVal">1.5</span></div></div>
+        </div>
+        <div class="section"><div class="section-title">Hizalama</div>
+          <div class="align-group" id="alignGroup">
+            <button class="align-btn" data-align="left">⬅</button>
+            <button class="align-btn active" data-align="center">↔</button>
+            <button class="align-btn" data-align="right">➡</button>
+          </div>
+        </div>
+        <div class="section"><div class="section-title">Yazı Efekti</div>
+          <div class="grid-btns" id="textEffectPicker">
+            <button class="mini-btn active" data-effect="none">Yok</button>
+            <button class="mini-btn" data-effect="shadow">Gölge</button>
+            <button class="mini-btn" data-effect="glow">Işıltı</button>
+            <button class="mini-btn" data-effect="outline">Kontur</button>
+            <button class="mini-btn" data-effect="gradient">Gradyan</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel="fx">
+        <div class="section"><div class="section-title">Ana Emoji</div><div class="emojis" id="emojiPicker"></div></div>
+        <div class="section"><div class="section-title">Uçuşan Süslemeler (max 5)</div><div class="stickers" id="stickerPicker"></div></div>
+        <div class="section"><div class="section-title">Hediye Kutusu</div>
+          <div class="grid-btns" id="giftBoxPicker">
+            <button class="mini-btn active" data-gift="🎁">🎁</button>
+            <button class="mini-btn" data-gift="🎀">🎀</button>
+            <button class="mini-btn" data-gift="📦">📦</button>
+            <button class="mini-btn" data-gift="✉️">✉️</button>
+            <button class="mini-btn" data-gift="💌">💌</button>
+            <button class="mini-btn" data-gift="🌸">🌸</button>
+          </div>
+        </div>
+        <div class="section"><div class="section-title">Kart Animasyonu</div>
+          <div class="grid-btns" id="animPicker">
+            <button class="mini-btn active" data-anim="pop">💥 Pop</button>
+            <button class="mini-btn" data-anim="slide">⬆️ Kaydır</button>
+            <button class="mini-btn" data-anim="flip">🔄 Çevir</button>
+            <button class="mini-btn" data-anim="zoom">🔍 Zoom</button>
+            <button class="mini-btn" data-anim="bounce">🏀 Zıpla</button>
+            <button class="mini-btn" data-anim="fade">💫 Belir</button>
+            <button class="mini-btn" data-anim="drop">⬇️ Düşür</button>
+            <button class="mini-btn" data-anim="spin">🌀 Döndür</button>
+          </div>
+        </div>
+        <div class="section"><div class="section-title">Konfeti Tipi</div>
+          <div class="grid-btns" id="confettiPicker">
+            <button class="mini-btn active" data-confetti="mixed">🎨 Karışık</button>
+            <button class="mini-btn" data-confetti="hearts">❤️ Kalpler</button>
+            <button class="mini-btn" data-confetti="stars">⭐ Yıldızlar</button>
+            <button class="mini-btn" data-confetti="sparkles">✨ Parıltı</button>
+            <button class="mini-btn" data-confetti="balloons">🎈 Balonlar</button>
+            <button class="mini-btn" data-confetti="petals">🌸 Yapraklar</button>
+            <button class="mini-btn" data-confetti="emojis">🥳 Emojiler</button>
+          </div>
+        </div>
+        <div class="section"><div class="section-title">Ekstralar</div>
+          <div class="toggle-row" id="musicToggle"><span>🎵 Doğum günü müziği</span><div class="toggle"></div></div>
+          <div class="toggle-row" id="soundEffectsToggle"><span>🔊 Ses efektleri</span><div class="toggle"></div></div>
+          <div class="toggle-row" id="candlesToggle"><span>🕯️ İnteraktif mumlar</span><div class="toggle"></div></div>
+          <div class="toggle-row" id="micBlowToggle"><span>🎤 Üfleyerek söndürme</span><div class="toggle"></div></div>
+          <div class="toggle-row" id="typewriterToggle"><span>⌨️ Daktilo efekti</span><div class="toggle"></div></div>
+          <div class="toggle-row" id="autoOpenToggle"><span>⏩ Hediye kutusunu atla</span><div class="toggle"></div></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel="share">
+        <div id="envInfo"></div>
+
+        <div class="section">
+          <div class="section-title">1️⃣ Yayın Adresi (Base URL)</div>
+          <div id="baseUrlStatus"></div>
+          <div class="field">
+            <input id="baseUrlInput" type="text" placeholder="https://ornek.netlify.app/kart.html" inputmode="url" autocomplete="url">
+          </div>
+          <p class="hint">
+            <b>Link nasıl çalışır?</b><br>
+            1. HTML dosyanı <a href="https://app.netlify.com/drop" target="_blank" rel="noopener" style="color:#7c3aed;font-weight:700;">app.netlify.com/drop</a> adresine sürükle-bırak (ücretsiz, üyelik yok)<br>
+            2. Sana verilen <b>https://xyz.netlify.app/kart.html</b> adresini buraya yapıştır<br>
+            3. "Linki Oluştur" → Link Google'da açılabilir gerçek bir web adresi olur
+          </p>
+        </div>
+
+        <div class="section">
+          <div class="section-title">2️⃣ Paylaşım Mesajı</div>
+          <div class="field">
+            <input id="shareMsgInput" type="text" placeholder="Sana doğum günü kartı hazırladım! 🎂" maxlength="200" autocomplete="off">
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">3️⃣ Linki Oluştur</div>
+          <button class="btn-primary" id="generateBtn">🔗 Linki Oluştur</button>
+        </div>
+
+        <div class="link-box hidden" id="result">
+          <label>🎉 Link hazır!</label>
+          <div class="link-row">
+            <input id="linkOutput" type="text" readonly>
+            <button id="copyBtn" title="Kopyala">📋</button>
+          </div>
+          <div class="share-big-row">
+            <a class="share-big wa" id="shareWa" target="_blank" rel="noopener">
+              <span class="big-ico">💬</span>
+              <span>WhatsApp</span>
+            </a>
+            <a class="share-big email" id="shareEmail">
+              <span class="big-ico">✉️</span>
+              <span>E-posta</span>
+            </a>
+          </div>
+          <div class="action-row">
+            <button class="action-big" id="previewCardBtn">👁️ Önizle</button>
+            <button class="action-big" id="downloadBtn">⬇️ PNG İndir</button>
+          </div>
+          <p class="hint" id="urlLengthInfo"></p>
+        </div>
+
+        <!-- Önizleme butonu link olmasa da çalışsın -->
+        <div class="section" id="previewNoLinkSection">
+          <div class="section-title">Kartı Test Et</div>
+          <button class="btn-primary alt" id="previewDirectBtn">👁️ Kartı Aç (Önizle)</button>
+          <p class="hint">Link oluşturmadan da kartı açıp test edebilirsin. Arkadaşına göndermek için yukarıdan linkini oluştur.</p>
+        </div>
+
+        <div class="row-2" style="margin-top:14px;">
+          <button class="btn-secondary" id="randomBtn">🎲 Rastgele</button>
+          <button class="btn-secondary" id="resetBtn">🔄 Sıfırla</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- KART GÖRÜNÜMÜ -->
+<div id="cardView" class="hidden">
+  <canvas id="confetti"></canvas>
+  <div class="floating-stickers" id="floatingStickers"></div>
+
+  <div class="gift-stage" id="giftStage">
+    <div class="gift" id="giftBox">🎁</div>
+    <h2 class="gift-title">Sana bir sürpriz var!</h2>
+    <button class="btn-open" id="openCardBtn">Kartı Aç 💌</button>
+  </div>
+
+  <div class="card-stage hidden" id="cardStage">
+    <div class="birthday-card anim-pop" id="birthdayCard">
+      <div class="bc-pattern" id="bcPattern"></div>
+      <div class="bc-content">
+        <div class="bc-photo-wrap" id="bcPhotoWrap"><img class="bc-photo" id="bcPhoto" data-shape="circle" alt=""></div>
+        <div class="bc-emoji" id="bcEmoji">🎂</div>
+        <div class="bc-age hidden" id="bcAge"></div>
+        <h1 class="bc-title" id="bcTitle">İyi ki doğdun</h1>
+        <div class="bc-name" id="bcName">Ahmet</div>
+        <div class="bc-date hidden" id="bcDate"></div>
+        <p class="bc-msg" id="bcMsg"></p>
+        <div class="bc-cake hidden" id="bcCake">
+          <div class="candle" data-c="0"><div class="candle-body"></div><div class="flame"></div></div>
+          <div class="candle" data-c="1"><div class="candle-body"></div><div class="flame"></div></div>
+          <div class="candle" data-c="2"><div class="candle-body"></div><div class="flame"></div></div>
+        </div>
+        <div class="cake-hint hidden" id="cakeHint">Mumlara dokun veya üfle 🕯️</div>
+        <button class="blow-btn hidden" id="blowBtn">🎤 Üfle</button>
+        <div class="bc-from"><span>Sevgilerle,</span><b id="bcFromName">Ayşe</b></div>
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;">
+      <button class="btn-create" id="createOwnBtn">Kendi kartını oluştur ✨</button>
+      <button class="btn-create" id="downloadCardBtn">⬇️ PNG İndir</button>
+    </div>
+  </div>
+
+  <button class="music-btn hidden" id="musicBtn" title="Müziği aç/kapat">🔇</button>
+</div>
+
+<script>
+/* ORTAM */
+function detectEnvironment() {
+  const href = location.href.split('#')[0];
+  if (!href || href === 'about:srcdoc' || href === 'about:blank') return 'srcdoc';
+  if (href.startsWith('file:')) return 'file';
+  if (href.startsWith('content:')) return 'webview';
+  if (href.startsWith('blob:') || href.startsWith('data:')) return 'temp';
+  if (href.startsWith('http')) return 'web';
+  return 'unknown';
+}
+const ENV = detectEnvironment();
+const IS_APP_LIKE = ENV === 'srcdoc' || ENV === 'file' || ENV === 'webview' || ENV === 'temp';
+
+const FONTS = {
+  pacifico:  { name: 'Pacifico',   css: "'Pacifico', cursive" },
+  poppins:   { name: 'Poppins',    css: "'Poppins', sans-serif" },
+  playfair:  { name: 'Playfair',   css: "'Playfair Display', serif" },
+  dancing:   { name: 'Dancing',    css: "'Dancing Script', cursive" },
+  caveat:    { name: 'Caveat',     css: "'Caveat', cursive" },
+  righteous: { name: 'Righteous',  css: "'Righteous', sans-serif" },
+  lobster:   { name: 'Lobster',    css: "'Lobster', cursive" },
+  comfortaa: { name: 'Comfortaa',  css: "'Comfortaa', sans-serif" },
+  merri:     { name: 'Merriweather', css: "'Merriweather', serif" },
+  bebas:     { name: 'Bebas Neue', css: "'Bebas Neue', sans-serif" },
+  quicksand: { name: 'Quicksand',  css: "'Quicksand', sans-serif" }
+};
+
+const THEMES = {
+  pembe:     { name: 'Şeker Pembe',   bg: 'linear-gradient(135deg,#ff9a9e 0%,#fad0c4 55%,#fbc2eb 100%)', card: '#ffffff', text: '#4a1a2c', accent: '#e91e63', confetti: ['#ff6b9d','#ffd93d','#6bcb77','#4d96ff','#c780fa','#ff9a9e'] },
+  gunbatimi: { name: 'Gün Batımı',    bg: 'linear-gradient(135deg,#ff512f 0%,#f09819 60%,#ffd452 100%)', card: '#fff8f0', text: '#5a2d0c', accent: '#e05600', confetti: ['#ff512f','#f09819','#ffd452','#ff7b54','#fff1c1'] },
+  okyanus:   { name: 'Okyanus',       bg: 'linear-gradient(135deg,#1e3c72 0%,#2a5298 50%,#4facfe 100%)', card: '#ffffff', text: '#0d2447', accent: '#2563eb', confetti: ['#4facfe','#00f2fe','#38bdf8','#a5f3fc','#ffffff'] },
+  orman:     { name: 'Orman',         bg: 'linear-gradient(135deg,#134e5e 0%,#2e8b57 55%,#71b280 100%)', card: '#f4fff7', text: '#163a28', accent: '#2e8b57', confetti: ['#71b280','#2e8b57','#a7f3d0','#fef9c3','#ffffff'] },
+  gece:      { name: 'Gece Mavisi',   bg: 'linear-gradient(135deg,#0f2027 0%,#203a43 50%,#2c5364 100%)', card: '#1c2b35', text: '#e8f1f5', accent: '#4facfe', confetti: ['#4facfe','#a78bfa','#f472b6','#facc15','#34d399'] },
+  lavanta:   { name: 'Lavanta',       bg: 'linear-gradient(135deg,#a18cd1 0%,#c8a2e8 50%,#fbc2eb 100%)', card: '#ffffff', text: '#3d2a5d', accent: '#8b5cf6', confetti: ['#a18cd1','#fbc2eb','#c084fc','#fde68a','#ffffff'] },
+  altin:     { name: 'Altın Gece',    bg: 'linear-gradient(135deg,#232526 0%,#414345 50%,#5a4a2a 100%)', card: '#1a1a1a', text: '#f5d76e', accent: '#d4af37', confetti: ['#d4af37','#f5d76e','#fff3b0','#b8860b','#ffffff'] },
+  seftali:   { name: 'Şeftali',       bg: 'linear-gradient(135deg,#ffecd2 0%,#fcb69f 50%,#ff8a80 100%)', card: '#fffaf6', text: '#5c2a1a', accent: '#ff6e40', confetti: ['#ff8a80','#fcb69f','#ffcc80','#ffab91','#fff3e0'] },
+  deniz:     { name: 'Deniz Köpüğü',  bg: 'linear-gradient(135deg,#a8edea 0%,#5fc6d1 50%,#3778a5 100%)', card: '#ffffff', text: '#0a4a5a', accent: '#0ea5b7', confetti: ['#5fc6d1','#a8edea','#67e8f9','#fef08a','#ffffff'] },
+  neon:      { name: 'Neon Gece',     bg: 'linear-gradient(135deg,#0f0c29 0%,#302b63 50%,#24243e 100%)', card: '#13132b', text: '#f0f0ff', accent: '#ff00ff', confetti: ['#ff00ff','#00ffff','#ffff00','#00ff00','#ffffff'] }
+};
+
+const PATTERNS = {
+  none: { name: 'Yok' },
+  dots: { name: 'Noktalar', cls: 'pattern-dots' },
+  stripes: { name: 'Çizgiler', cls: 'pattern-stripes' },
+  hearts: { name: 'Kalpler', cls: 'pattern-hearts' },
+  stars: { name: 'Yıldızlar', cls: 'pattern-stars' },
+  circles: { name: 'Daireler', cls: 'pattern-circles' },
+  confetti: { name: 'Konfeti', cls: 'pattern-confetti' },
+  waves: { name: 'Dalgalar', cls: 'pattern-waves' }
+};
+
+const EMOJIS   = ['🎂','🎉','🎁','🎈','🥳','🌟','🎊','💐','🍰','🦄','🎀','🌷'];
+const STICKERS = ['🎈','✨','🌟','🎊','💖','🎀','🌸','🎵','🦋','🌈','💫','⭐'];
+const CONFETTI_EMOJIS = ['🎉','🎊','🎂','🎈','🎁','✨','🌟','💖','🥳','🦄','🌈','⭐'];
+
+const PRESETS = {
+  parti:  { name: 'Parti',  emoji: '🥳', theme: 'pembe',     layout: 'classic',  pattern: 'confetti', emojiMain: '🥳', cardAnim: 'bounce', confetti: 'emojis',   titleFont: 'pacifico',  nameFont: 'righteous', msgFont: 'poppins',   textEffect: 'shadow', aspect: 'portrait' },
+  zarif:  { name: 'Zarif',  emoji: '✨', theme: 'altin',     layout: 'minimal',  pattern: 'none',     emojiMain: '✨', cardAnim: 'fade',   confetti: 'sparkles', titleFont: 'playfair',  nameFont: 'playfair',  msgFont: 'poppins',   textEffect: 'glow',   aspect: 'portrait' },
+  tatli:  { name: 'Tatlı',  emoji: '🌸', theme: 'seftali',   layout: 'polaroid', pattern: 'hearts',   emojiMain: '🌸', cardAnim: 'pop',    confetti: 'hearts',   titleFont: 'dancing',   nameFont: 'caveat',    msgFont: 'poppins',   textEffect: 'none',   aspect: 'square' },
+  retro:  { name: 'Retro',  emoji: '🎨', theme: 'gunbatimi', layout: 'classic',  pattern: 'dots',     emojiMain: '🎨', cardAnim: 'slide',  confetti: 'mixed',    titleFont: 'lobster',   nameFont: 'righteous', msgFont: 'comfortaa', textEffect: 'shadow', aspect: 'portrait' },
+  gece:   { name: 'Gece',   emoji: '🌙', theme: 'neon',      layout: 'classic',  pattern: 'stars',    emojiMain: '🌙', cardAnim: 'spin',   confetti: 'stars',    titleFont: 'comfortaa', nameFont: 'bebas',     msgFont: 'poppins',   textEffect: 'glow',   aspect: 'story' },
+  dogal:  { name: 'Doğal',  emoji: '🌿', theme: 'orman',     layout: 'polaroid', pattern: 'none',     emojiMain: '🌿', cardAnim: 'fade',   confetti: 'petals',   titleFont: 'caveat',    nameFont: 'caveat',    msgFont: 'quicksand', textEffect: 'none',   aspect: 'square' }
+};
+
+const state = {
+  to: '', from: '', message: '', age: '', title: '', date: '', photo: '',
+  theme: 'pembe', accent: '', cardBg: '', textColor: '',
+  pattern: 'none', layout: 'classic', aspect: 'portrait', borderRadius: 6,
+  cardTilt: 0, cardShadow: 100,
+  titleFont: 'pacifico', nameFont: 'pacifico', msgFont: 'poppins',
+  titleSize: 100, nameSize: 100, msgSize: 100,
+  titleWeight: 400, nameWeight: 400, msgWeight: 400,
+  letterSpacing: 0, lineHeight: 1.5, align: 'center', textEffect: 'none',
+  emoji: '🎂', stickers: [], cardAnim: 'pop', confetti: 'mixed', giftBox: '🎁',
+  music: false, soundEffects: true, candles: false, micBlow: true, typewriter: false, autoOpen: false,
+  photoSize: 22, photoShape: 'circle', photoBorderWidth: 2, photoBorderColor: '#ffffff',
+  photoQuality: 500,
+  shareMsg: 'Sana doğum günü kartı hazırladım! 🎂'
+};
+
+function toB64Url(str) {
+  const bytes = new TextEncoder().encode(str);
+  let bin = '';
+  for (const b of bytes) bin += String.fromCharCode(b);
+  return btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+function fromB64Url(s) {
+  s = s.replace(/-/g, '+').replace(/_/g, '/');
+  while (s.length % 4) s += '=';
+  const bin = atob(s);
+  const bytes = Uint8Array.from(bin, c => c.charCodeAt(0));
+  return new TextDecoder().decode(bytes);
+}
+function showToast(msg, color) {
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.textContent = msg;
+  if (color) t.style.background = color;
+  document.body.appendChild(t);
+  requestAnimationFrame(() => t.classList.add('show'));
+  setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 400); }, 2400);
+}
+
+function renderEnvInfo() {
+  const el = document.getElementById('envInfo');
+  if (ENV === 'web') {
+    el.innerHTML = `<div class="ok-box"><b>✅ Web modu.</b> Link paylaşımı tam çalışır.</div>`;
+  } else if (ENV === 'srcdoc' || ENV === 'file' || ENV === 'webview' || ENV === 'temp') {
+    el.innerHTML = `<div class="info-box"><b>ℹ️ Uygulama/iFrame modu.</b> Link oluşturmak için base URL gerekli. <b>Önizle</b> butonu her zaman çalışır.</div>`;
+  } else {
+    el.innerHTML = `<div class="info-box">Ortam belirsiz. Base URL gir.</div>`;
+  }
+}
+
+function detectBaseUrl() {
+  const href = location.href.split('#')[0];
+  if (!href || href === 'about:srcdoc' || href === 'about:blank') return '';
+  if (href.startsWith('about:') || href.startsWith('blob:') || href.startsWith('data:') || href.startsWith('file:') || href.startsWith('content:')) return '';
+  if (!/^https?:\/\//.test(href)) return '';
+  return href.replace(/#.*$/, '');
+}
+function updateBaseUrlStatus() {
+  const status = document.getElementById('baseUrlStatus');
+  const base = document.getElementById('baseUrlInput').value.trim();
+  if (!base) {
+    status.innerHTML = '<div class="warn-box"><b>⚠️ Base URL gerekli.</b> Link oluşturmak için hosting adresini gir.</div>';
+  } else if (/^https?:\/\//.test(base) && !base.includes('#')) {
+    status.innerHTML = '<div class="ok-box"><b>✅ URL geçerli.</b> Link Google\'da açılabilir.</div>';
+  } else if (base.includes('#')) {
+    status.innerHTML = '<div class="warn-box">⚠️ URL <b>#</b> içeriyor. Sadece ana adresi gir (örn: <code>https://xyz.netlify.app/kart.html</code>).</div>';
+  } else {
+    status.innerHTML = '<div class="warn-box">⚠️ URL <b>http://</b> veya <b>https://</b> ile başlamalı.</div>';
+  }
+}
+
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.querySelector(`[data-panel="${tab.dataset.tab}"]`).classList.add('active');
+  });
+});
+
+function buildThemePicker() {
+  const wrap = document.getElementById('themes');
+  Object.entries(THEMES).forEach(([key, t]) => {
+    const b = document.createElement('button');
+    b.className = 'theme-swatch' + (key === state.theme ? ' active' : '');
+    b.style.background = t.bg; b.title = t.name; b.dataset.theme = key; b.type = 'button';
+    b.addEventListener('click', () => {
+      state.theme = key;
+      state.accent = state.cardBg = state.textColor = '';
+      document.querySelectorAll('.theme-swatch').forEach(el => el.classList.toggle('active', el.dataset.theme === key));
+      syncColorPickers(); updatePreview();
+    });
+    wrap.appendChild(b);
+  });
+}
+function buildPresets() {
+  const wrap = document.getElementById('presets');
+  Object.entries(PRESETS).forEach(([key, p]) => {
+    const b = document.createElement('button');
+    b.className = 'preset-btn';
+    b.innerHTML = `<span class="p-emoji">${p.emoji}</span>${p.name}`;
+    b.type = 'button';
+    b.addEventListener('click', () => {
+      Object.assign(state, {
+        theme: p.theme, layout: p.layout, pattern: p.pattern, aspect: p.aspect,
+        emoji: p.emojiMain, cardAnim: p.cardAnim, confetti: p.confetti,
+        titleFont: p.titleFont, nameFont: p.nameFont, msgFont: p.msgFont,
+        textEffect: p.textEffect, accent: '', cardBg: '', textColor: ''
+      });
+      syncUIFromState();
+      showToast(`✨ ${p.name} uygulandı`);
+    });
+    wrap.appendChild(b);
+  });
+}
+function buildPatternPicker() {
+  const wrap = document.getElementById('patternPicker');
+  Object.entries(PATTERNS).forEach(([key, p]) => {
+    const b = document.createElement('button');
+    b.className = 'mini-btn' + (key === state.pattern ? ' active' : '');
+    b.textContent = p.name; b.type = 'button'; b.dataset.pattern = key;
+    b.addEventListener('click', () => {
+      state.pattern = key;
+      wrap.querySelectorAll('.mini-btn').forEach(el => el.classList.toggle('active', el.dataset.pattern === key));
+      updatePreview();
+    });
+    wrap.appendChild(b);
+  });
+}
+document.querySelectorAll('#layoutPicker .mini-btn').forEach(b => {
+  b.addEventListener('click', () => {
+    state.layout = b.dataset.layout;
+    document.querySelectorAll('#layoutPicker .mini-btn').forEach(el => el.classList.toggle('active', el.dataset.layout === state.layout));
+    updatePreview();
+  });
+});
+document.querySelectorAll('#aspectPicker .mini-btn').forEach(b => {
+  b.addEventListener('click', () => {
+    state.aspect = b.dataset.aspect;
+    document.querySelectorAll('#aspectPicker .mini-btn').forEach(el => el.classList.toggle('active', el.dataset.aspect === state.aspect));
+    updatePreview();
+  });
+});
+
+function buildEmojiPicker() {
+  const wrap = document.getElementById('emojiPicker');
+  EMOJIS.forEach(e => {
+    const b = document.createElement('button');
+    b.className = 'emoji-btn' + (e === state.emoji ? ' active' : '');
+    b.textContent = e; b.type = 'button';
+    b.addEventListener('click', () => {
+      state.emoji = e;
+      document.querySelectorAll('#emojiPicker .emoji-btn').forEach(el => el.classList.toggle('active', el.textContent === e));
+      updatePreview();
+    });
+    wrap.appendChild(b);
+  });
+}
+function buildStickerPicker() {
+  const wrap = document.getElementById('stickerPicker');
+  STICKERS.forEach(e => {
+    const b = document.createElement('button');
+    b.className = 'sticker-btn' + (state.stickers.includes(e) ? ' active' : '');
+    b.textContent = e; b.type = 'button';
+    b.addEventListener('click', () => {
+      const idx = state.stickers.indexOf(e);
+      if (idx >= 0) { state.stickers.splice(idx, 1); b.classList.remove('active'); }
+      else {
+        if (state.stickers.length >= 5) { showToast('En fazla 5 süsleme', '#f59e0b'); return; }
+        state.stickers.push(e); b.classList.add('active');
+      }
+    });
+    wrap.appendChild(b);
+  });
+}
+document.querySelectorAll('#giftBoxPicker .mini-btn').forEach(b => {
+  b.addEventListener('click', () => {
+    state.giftBox = b.dataset.gift;
+    document.querySelectorAll('#giftBoxPicker .mini-btn').forEach(el => el.classList.toggle('active', el.dataset.gift === state.giftBox));
+  });
+});
+
+function buildFontPicker(wrapId, stateKey) {
+  const wrap = document.getElementById(wrapId);
+  Object.entries(FONTS).forEach(([key, f]) => {
+    const b = document.createElement('button');
+    b.className = 'font-btn' + (key === state[stateKey] ? ' active' : '');
+    b.style.fontFamily = f.css; b.textContent = f.name; b.type = 'button'; b.dataset.font = key;
+    b.addEventListener('click', () => {
+      state[stateKey] = key;
+      wrap.querySelectorAll('.font-btn').forEach(el => el.classList.toggle('active', el.dataset.font === key));
+      updatePreview();
+    });
+    wrap.appendChild(b);
+  });
+}
+
+function syncColorPickers() {
+  const t = THEMES[state.theme];
+  document.getElementById('accentColor').value = state.accent || t.accent;
+  document.getElementById('cardBgColor').value = state.cardBg || t.card;
+  document.getElementById('textColor').value = state.textColor || t.text;
+}
+document.getElementById('accentColor').addEventListener('input', e => { state.accent = e.target.value; updatePreview(); });
+document.getElementById('cardBgColor').addEventListener('input', e => { state.cardBg = e.target.value; updatePreview(); });
+document.getElementById('textColor').addEventListener('input', e => { state.textColor = e.target.value; updatePreview(); });
+document.getElementById('resetColors').addEventListener('click', () => {
+  state.accent = state.cardBg = state.textColor = '';
+  syncColorPickers(); updatePreview(); showToast('Renkler sıfırlandı');
+});
+
+const inputs = { toInput:'to', fromInput:'from', msgInput:'message', ageInput:'age', titleInput:'title', dateInput:'date', shareMsgInput:'shareMsg' };
+Object.entries(inputs).forEach(([id, key]) => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.addEventListener('input', e => { state[key] = e.target.value; if (key !== 'shareMsg') updatePreview(); });
+});
+
+document.getElementById('photoUpload').addEventListener('click', () => document.getElementById('photoInput').click());
+document.getElementById('photoInput').addEventListener('change', async (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  if (!file.type.startsWith('image/')) { showToast('Sadece resim', '#f59e0b'); return; }
+  try {
+    state.photo = await resizeImage(file, state.photoQuality, 0.72);
+    updatePhotoUI(); updatePreview();
+    showToast('📸 Fotoğraf eklendi');
+  } catch { showToast('Yüklenemedi', '#ef4444'); }
+});
+document.getElementById('removePhotoBtn').addEventListener('click', (e) => {
+  e.stopPropagation();
+  state.photo = ''; updatePhotoUI(); updatePreview();
+});
+function resizeImage(file, maxW = 500, q = 0.75) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        let { width, height } = img;
+        if (width > maxW) { height = height * maxW / width; width = maxW; }
+        if (height > maxW) { width = width * maxW / height; height = maxW; }
+        canvas.width = width; canvas.height = height;
+        canvas.getContext('2d').drawImage(img, 0, 0, width, height);
+        resolve(canvas.toDataURL('image/jpeg', q));
+      };
+      img.onerror = reject;
+      img.src = ev.target.result;
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+function updatePhotoUI() {
+  const prev = document.getElementById('photoPreview');
+  const prevImg = document.getElementById('photoPreviewImg');
+  const uploadBox = document.getElementById('photoUpload');
+  if (state.photo) {
+    prev.style.display = 'inline-block'; prevImg.src = state.photo; uploadBox.style.opacity = '0.5';
+  } else {
+    prev.style.display = 'none'; uploadBox.style.opacity = '1';
+  }
+}
+document.querySelectorAll('#qualityPicker .mini-btn').forEach(b => {
+  b.addEventListener('click', () => {
+    state.photoQuality = +b.dataset.quality;
+    document.querySelectorAll('#qualityPicker .mini-btn').forEach(el => el.classList.toggle('active', +el.dataset.quality === state.photoQuality));
+    if (state.photo) showToast('Yeni kalite için fotoğrafı yeniden yükle', '#f59e0b');
+  });
+});
+document.querySelectorAll('#shapePicker .mini-btn').forEach(b => {
+  b.addEventListener('click', () => {
+    state.photoShape = b.dataset.shape;
+    document.querySelectorAll('#shapePicker .mini-btn').forEach(el => el.classList.toggle('active', el.dataset.shape === state.photoShape));
+    updatePreview();
+  });
+});
+
+[['titleSize','titleSizeVal','titleSize'],
+ ['nameSize','nameSizeVal','nameSize'],
+ ['msgSize','msgSizeVal','msgSize'],
+ ['borderRadius','borderRadiusVal','borderRadius'],
+ ['letterSpacing','letterSpacingVal','letterSpacing'],
+ ['lineHeight','lineHeightVal','lineHeight'],
+ ['cardTilt','cardTiltVal','cardTilt'],
+ ['cardShadow','cardShadowVal','cardShadow'],
+ ['photoSize','photoSizeVal','photoSize'],
+ ['photoBorderWidth','photoBorderWidthVal','photoBorderWidth']].forEach(([id, valId, key]) => {
+  const el = document.getElementById(id); const val = document.getElementById(valId);
+  if (!el) return;
+  el.addEventListener('input', () => {
+    const v = +el.value;
+    if (key === 'lineHeight') { state[key] = v / 100; val.textContent = (v/100).toFixed(1); }
+    else if (key === 'cardTilt') { state[key] = v; val.textContent = v + '°'; }
+    else if (key === 'cardShadow') { state[key] = v; val.textContent = v + '%'; }
+    else { state[key] = v; val.textContent = (key === 'borderRadius' || key === 'letterSpacing' || key === 'photoSize' || key === 'photoBorderWidth') ? v : v + '%'; }
+    updatePreview();
+  });
+});
+document.getElementById('photoBorderColor').addEventListener('input', e => { state.photoBorderColor = e.target.value; updatePreview(); });
+
+document.querySelectorAll('.align-btn').forEach(b => {
+  b.addEventListener('click', () => {
+    state.align = b.dataset.align;
+    document.querySelectorAll('.align-btn').forEach(el => el.classList.toggle('active', el.dataset.align === state.align));
+    updatePreview();
+  });
+});
+
+document.querySelectorAll('#animPicker .mini-btn').forEach(c => {
+  c.addEventListener('click', () => {
+    state.cardAnim = c.dataset.anim;
+    document.querySelectorAll('#animPicker .mini-btn').forEach(el => el.classList.toggle('active', el.dataset.anim === state.cardAnim));
+  });
+});
+document.querySelectorAll('#confettiPicker .mini-btn').forEach(c => {
+  c.addEventListener('click', () => {
+    state.confetti = c.dataset.confetti;
+    document.querySelectorAll('#confettiPicker .mini-btn').forEach(el => el.classList.toggle('active', el.dataset.confetti === state.confetti));
+  });
+});
+document.querySelectorAll('#textEffectPicker .mini-btn').forEach(c => {
+  c.addEventListener('click', () => {
+    state.textEffect = c.dataset.effect;
+    document.querySelectorAll('#textEffectPicker .mini-btn').forEach(el => el.classList.toggle('active', el.dataset.effect === state.textEffect));
+    updatePreview();
+  });
+});
+
+[['musicToggle','music'],['soundEffectsToggle','soundEffects'],['candlesToggle','candles'],['micBlowToggle','micBlow'],['typewriterToggle','typewriter'],['autoOpenToggle','autoOpen']].forEach(([id, key]) => {
+  const el = document.getElementById(id);
+  el.classList.toggle('active', state[key]);
+  el.addEventListener('click', () => {
+    state[key] = !state[key];
+    el.classList.toggle('active', state[key]);
+  });
+});
+
+function applyPattern(el, pattern) {
+  el.className = 'bc-pattern';
+  if (PATTERNS[pattern] && PATTERNS[pattern].cls) el.classList.add(PATTERNS[pattern].cls);
+}
+function applyAspect(card, aspect) {
+  card.classList.remove('ar-square', 'ar-story', 'ar-landscape');
+  if (aspect === 'square') card.classList.add('ar-square');
+  else if (aspect === 'story') card.classList.add('ar-story');
+  else if (aspect === 'landscape') card.classList.add('ar-landscape');
+}
+function applyCardDesign(card, data) {
+  const t = THEMES[data.theme] || THEMES.pembe;
+  const isPolaroid = data.layout === 'polaroid';
+  card.style.background = isPolaroid ? '#fafafa' : (data.cardBg || t.card);
+  card.style.color = isPolaroid ? '#333' : (data.textColor || t.text);
+  card.style.setProperty('--accent', data.accent || t.accent);
+  card.style.setProperty('--title-scale', (data.titleSize || 100) / 100);
+  card.style.setProperty('--name-scale', (data.nameSize || 100) / 100);
+  card.style.setProperty('--msg-scale', (data.msgSize || 100) / 100);
+  card.style.setProperty('--letter-spacing', (data.letterSpacing || 0) + 'px');
+  card.style.setProperty('--line-height', data.lineHeight || 1.5);
+  card.style.setProperty('--photo-size', data.photoSize || 22);
+  card.style.setProperty('--title-weight', data.titleWeight || 400);
+  card.style.setProperty('--name-weight', data.nameWeight || 400);
+  card.style.setProperty('--msg-weight', data.msgWeight || 400);
+  card.style.setProperty('--card-tilt', (data.cardTilt || 0) + 'deg');
+  const s = (data.cardShadow ?? 100) / 100;
+  card.style.setProperty('--shadow-alpha', (0.22 * s).toFixed(2));
+  card.style.borderRadius = (data.borderRadius ?? 6) + 'cqw';
+  card.className = card.className.replace(/layout-\w+/g, '').trim();
+  card.classList.add('layout-' + (data.layout || 'classic'));
+  card.classList.remove('effect-shadow', 'effect-glow', 'effect-outline', 'effect-gradient');
+  if (data.textEffect && data.textEffect !== 'none') card.classList.add('effect-' + data.textEffect);
+  applyAspect(card, data.aspect || 'portrait');
+}
+function applyPhoto(photo, data) {
+  if (!photo) return;
+  photo.dataset.shape = data.photoShape || 'circle';
+  photo.style.borderWidth = (data.photoBorderWidth || 0) + 'cqw';
+  photo.style.borderStyle = 'solid';
+  photo.style.borderColor = data.photoBorderColor || '#ffffff';
+}
+function updatePreview() {
+  const card = document.getElementById('previewCard');
+  applyCardDesign(card, state);
+  applyPattern(document.getElementById('pcPattern'), state.pattern);
+
+  const photoWrap = document.getElementById('pcPhotoWrap');
+  const photo = document.getElementById('pcPhoto');
+  if (state.photo) {
+    photoWrap.classList.add('has-photo');
+    photo.src = state.photo;
+    applyPhoto(photo, state);
+  } else photoWrap.classList.remove('has-photo');
+
+  const titleEl = document.getElementById('pcTitle');
+  titleEl.style.fontFamily = FONTS[state.titleFont].css;
+  titleEl.style.textAlign = state.align;
+  titleEl.textContent = state.title.trim() || 'İyi ki doğdun';
+
+  const nameEl = document.getElementById('pcName');
+  nameEl.style.fontFamily = FONTS[state.nameFont].css;
+  nameEl.style.textAlign = state.align;
+  nameEl.textContent = state.to.trim() || 'İsim';
+
+  const dateEl = document.getElementById('pcDate');
+  if (state.date.trim()) { dateEl.textContent = state.date.trim(); dateEl.classList.remove('hidden'); }
+  else dateEl.classList.add('hidden');
+
+  const msgEl = document.getElementById('pcMsg');
+  msgEl.style.fontFamily = FONTS[state.msgFont].css;
+  msgEl.style.textAlign = state.align;
+  msgEl.textContent = state.message.trim() || 'Mesajın burada görünecek...';
+
+  document.getElementById('pcEmoji').textContent = state.emoji;
+  document.getElementById('pcFrom').textContent = state.from.trim() || 'Gönderen';
+
+  const ageEl = document.getElementById('pcAge');
+  if (state.age.trim()) { ageEl.textContent = `Nice ${state.age.trim()} yıllara! 🎉`; ageEl.classList.remove('hidden'); }
+  else ageEl.classList.add('hidden');
+
+  document.getElementById('pcEmoji').style.display = state.layout === 'polaroid' ? 'none' : '';
+}
+
+document.getElementById('randomBtn').addEventListener('click', () => {
+  const themes = Object.keys(THEMES); const patterns = Object.keys(PATTERNS); const fonts = Object.keys(FONTS);
+  state.theme = themes[Math.floor(Math.random() * themes.length)];
+  state.pattern = patterns[Math.floor(Math.random() * patterns.length)];
+  state.emoji = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
+  state.titleFont = fonts[Math.floor(Math.random() * fonts.length)];
+  state.nameFont = fonts[Math.floor(Math.random() * fonts.length)];
+  state.msgFont = fonts[Math.floor(Math.random() * fonts.length)];
+  state.cardAnim = ['pop','slide','flip','zoom','bounce','fade','drop','spin'][Math.floor(Math.random()*8)];
+  state.confetti = ['mixed','hearts','stars','sparkles','balloons','petals','emojis'][Math.floor(Math.random()*7)];
+  state.textEffect = ['none','shadow','glow','outline','gradient'][Math.floor(Math.random()*5)];
+  state.layout = ['classic','polaroid','minimal'][Math.floor(Math.random()*3)];
+  state.aspect = ['portrait','square','story','landscape'][Math.floor(Math.random()*4)];
+  state.accent = state.cardBg = state.textColor = '';
+  state.borderRadius = 3 + Math.floor(Math.random() * 10);
+  state.cardTilt = (Math.random() * 4 - 2).toFixed(1);
+  state.cardShadow = 50 + Math.floor(Math.random() * 150);
+  state.photoShape = ['circle','rounded','square','hexagon'][Math.floor(Math.random()*4)];
+  state.photoSize = 15 + Math.floor(Math.random() * 20);
+  syncUIFromState();
+  showToast('🎲 Rastgele dolduruldu!');
+});
+document.getElementById('resetBtn').addEventListener('click', () => {
+  if (!confirm('Tüm ayarlar sıfırlanacak. Devam et?')) return;
+  location.reload();
+});
+
+function syncUIFromState() {
+  document.querySelectorAll('.theme-swatch').forEach(el => el.classList.toggle('active', el.dataset.theme === state.theme));
+  document.querySelectorAll('#emojiPicker .emoji-btn').forEach(el => el.classList.toggle('active', el.textContent === state.emoji));
+  document.querySelectorAll('#patternPicker .mini-btn').forEach(el => el.classList.toggle('active', el.dataset.pattern === state.pattern));
+  document.querySelectorAll('#layoutPicker .mini-btn').forEach(el => el.classList.toggle('active', el.dataset.layout === state.layout));
+  document.querySelectorAll('#aspectPicker .mini-btn').forEach(el => el.classList.toggle('active', el.dataset.aspect === state.aspect));
+  document.querySelectorAll('#shapePicker .mini-btn').forEach(el => el.classList.toggle('active', el.dataset.shape === state.photoShape));
+  document.querySelectorAll('#qualityPicker .mini-btn').forEach(el => el.classList.toggle('active', +el.dataset.quality === state.photoQuality));
+  document.querySelectorAll('#giftBoxPicker .mini-btn').forEach(el => el.classList.toggle('active', el.dataset.gift === state.giftBox));
+  ['titleFontPicker','nameFontPicker','msgFontPicker'].forEach((id, i) => {
+    const key = ['titleFont','nameFont','msgFont'][i];
+    document.querySelectorAll(`#${id} .font-btn`).forEach(el => el.classList.toggle('active', el.dataset.font === state[key]));
+  });
+  document.querySelectorAll('#animPicker .mini-btn').forEach(el => el.classList.toggle('active', el.dataset.anim === state.cardAnim));
+  document.querySelectorAll('#confettiPicker .mini-btn').forEach(el => el.classList.toggle('active', el.dataset.confetti === state.confetti));
+  document.querySelectorAll('#textEffectPicker .mini-btn').forEach(el => el.classList.toggle('active', el.dataset.effect === state.textEffect));
+  ['borderRadius','letterSpacing','cardTilt','cardShadow','photoSize','photoBorderWidth'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = state[id];
+  });
+  document.getElementById('borderRadiusVal').textContent = state.borderRadius;
+  document.getElementById('letterSpacingVal').textContent = state.letterSpacing;
+  document.getElementById('cardTiltVal').textContent = state.cardTilt + '°';
+  document.getElementById('cardShadowVal').textContent = state.cardShadow + '%';
+  document.getElementById('photoSizeVal').textContent = state.photoSize;
+  document.getElementById('photoBorderWidthVal').textContent = state.photoBorderWidth;
+  document.getElementById('lineHeight').value = state.lineHeight * 100;
+  document.getElementById('lineHeightVal').textContent = state.lineHeight.toFixed(1);
+  document.getElementById('photoBorderColor').value = state.photoBorderColor;
+  document.querySelectorAll('.align-btn').forEach(el => el.classList.toggle('active', el.dataset.align === state.align));
+  document.getElementById('musicToggle').classList.toggle('active', state.music);
+  document.getElementById('soundEffectsToggle').classList.toggle('active', state.soundEffects);
+  document.getElementById('candlesToggle').classList.toggle('active', state.candles);
+  document.getElementById('micBlowToggle').classList.toggle('active', state.micBlow);
+  document.getElementById('typewriterToggle').classList.toggle('active', state.typewriter);
+  document.getElementById('autoOpenToggle').classList.toggle('active', state.autoOpen);
+  syncColorPickers();
+  updatePreview();
+}
+
+function buildConfigData() {
+  return {
+    to: state.to.trim() || 'Sen',
+    f:  state.from.trim() || 'Bir arkadaşın',
+    m:  state.message.trim() || 'Doğum günün kutlu olsun! 🎉',
+    a:  state.age.trim(), ti: state.title.trim(), dt: state.date.trim(),
+    ph: state.photo,
+    t:  state.theme, e: state.emoji, s: state.stickers, gb: state.giftBox,
+    tf: state.titleFont, nf: state.nameFont, mf: state.msgFont,
+    ts: state.titleSize, ns: state.nameSize, ms: state.msgSize,
+    twt: state.titleWeight, nwt: state.nameWeight, mwt: state.msgWeight,
+    ls: state.letterSpacing, lh: state.lineHeight,
+    al: state.align, te: state.textEffect,
+    ac: state.accent, cb: state.cardBg, tc: state.textColor,
+    br: state.borderRadius, pt: state.pattern, ly: state.layout,
+    ar: state.aspect, ca: state.cardAnim, ct: state.confetti,
+    tl: state.cardTilt, csh: state.cardShadow,
+    pz: state.photoSize, psh: state.photoShape,
+    pbw: state.photoBorderWidth, pbc: state.photoBorderColor,
+    mu: state.music ? 1 : 0, se: state.soundEffects ? 1 : 0,
+    cd: state.candles ? 1 : 0, mb: state.micBlow ? 1 : 0,
+    tw: state.typewriter ? 1 : 0, ao: state.autoOpen ? 1 : 0
+  };
+}
+
+document.getElementById('baseUrlInput').addEventListener('input', () => {
+  const v = document.getElementById('baseUrlInput').value.trim();
+  try { localStorage.setItem('cardBaseUrl', v); } catch {}
+  updateBaseUrlStatus();
+});
+
+let currentShareUrl = '';
+document.getElementById('generateBtn').addEventListener('click', () => {
+  const base = document.getElementById('baseUrlInput').value.trim().replace(/#.*$/, '');
+  if (!base || !/^https?:\/\//.test(base)) {
+    showToast('⚠️ Geçerli bir base URL gir', '#f59e0b');
+    document.getElementById('baseUrlInput').focus();
+    return;
+  }
+  const encoded = toB64Url(JSON.stringify(buildConfigData()));
+  const url = base + '#k=' + encoded;
+  currentShareUrl = url;
+
+  const shareMsg = state.shareMsg.trim() || 'Sana doğum günü kartı hazırladım! 🎂';
+
+  document.getElementById('linkOutput').value = url;
+  document.getElementById('shareWa').href = 'https://wa.me/?text=' + encodeURIComponent(shareMsg + '\n' + url);
+  document.getElementById('shareEmail').href = 'mailto:?subject=' + encodeURIComponent('Doğum Günü Kartı 🎂') + '&body=' + encodeURIComponent(shareMsg + '\n\n' + url);
+
+  document.getElementById('result').classList.remove('hidden');
+
+  const lenInfo = document.getElementById('urlLengthInfo');
+  const len = url.length;
+  if (len > 8000) { lenInfo.className = 'warn-box'; lenInfo.textContent = `⚠️ Link çok uzun (${len} karakter). Fotoğrafı kaldırıp tekrar dene.`; }
+  else if (len > 4000) { lenInfo.className = 'warn-box'; lenInfo.textContent = `⚠️ Link uzun (${len} karakter). WhatsApp kesebilir.`; }
+  else { lenInfo.className = 'ok-box'; lenInfo.textContent = `✅ Link hazır (${len} karakter).`; }
+
+  showToast('✅ Link hazır!');
+  document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+});
+
+/* Link kopyala */
+document.getElementById('copyBtn').addEventListener('click', async function () {
+  const input = document.getElementById('linkOutput');
+  try {
+    await navigator.clipboard.writeText(input.value);
+  } catch {
+    input.select();
+    input.setSelectionRange(0, 99999);
+    try { document.execCommand('copy'); } catch {}
+  }
+  this.textContent = '✓';
+  this.classList.add('copied');
+  showToast('📋 Link kopyalandı!');
+  setTimeout(() => { this.textContent = '📋'; this.classList.remove('copied'); }, 1800);
+});
+
+/* PNG indir */
+async function ensureHtml2Canvas() {
+  if (window.html2canvas) return;
+  await new Promise((resolve, reject) => {
+    const s = document.createElement('script');
+    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+    s.onload = resolve; s.onerror = reject;
+    document.head.appendChild(s);
+  });
+}
+async function captureCardCanvas() {
+  const target = document.getElementById('birthdayCard');
+  if (!target || target.offsetParent === null) throw new Error('Önce kartı önizle');
+  await ensureHtml2Canvas();
+  const prevAnim = target.style.animation;
+  target.style.animation = 'none';
+  void target.offsetWidth;
+  const canvas = await window.html2canvas(target, { backgroundColor: null, scale: 2, useCORS: true, logging: false });
+  target.style.animation = prevAnim;
+  return canvas;
+}
+async function downloadCardAsPng() {
+  try {
+    showToast('📸 Hazırlanıyor...', '#8b5cf6');
+    const canvas = await captureCardCanvas();
+    const dataUrl = canvas.toDataURL('image/png');
+    if (IS_APP_LIKE) {
+      const w = window.open('', '_blank');
+      if (w) {
+        w.document.write('<html><head><title>Kartı Kaydet</title><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{margin:0;background:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;font-family:sans-serif;color:#fff;text-align:center;padding:20px;}img{max-width:100%;max-height:75vh;border-radius:12px;}p{margin-top:20px;font-size:14px;opacity:.85;}a{color:#fff;text-decoration:none;font-weight:700;margin-top:16px;padding:14px 28px;background:#22c55e;border-radius:8px;display:inline-block;}</style></head><body><img src="' + dataUrl + '" alt="Kart"><p>Resme uzun bas → <b>"Resmi kaydet"</b></p><a href="' + dataUrl + '" download="dogum-gunu-karti.png">⬇️ İndir</a></body></html>');
+        w.document.close();
+      } else showToast('Pop-up engellendi', '#ef4444');
+    } else {
+      const link = document.createElement('a');
+      link.download = `dogum-gunu-karti-${Date.now()}.png`;
+      link.href = dataUrl;
+      link.click();
+    }
+    showToast('✅ Kart hazır!');
+  } catch (err) {
+    console.error(err);
+    showToast('Başarısız: ' + err.message, '#ef4444');
+  }
+}
+document.getElementById('downloadBtn').addEventListener('click', downloadCardAsPng);
+document.getElementById('downloadCardBtn').addEventListener('click', downloadCardAsPng);
+
+/* ÖNEMLİ: Önizle butonları → doğrudan kart görünümü (in-page) */
+document.getElementById('previewDirectBtn').addEventListener('click', () => {
+  showCardView(buildConfigData());
+});
+document.getElementById('previewCardBtn').addEventListener('click', () => {
+  showCardView(buildConfigData());
+});
+
+let confettiRAF = null;
+function drawHeart(ctx, s) { ctx.beginPath(); ctx.moveTo(0, -s*0.35); ctx.bezierCurveTo(s*0.9, -s*0.9, s*1.3, s*0.3, 0, s*0.9); ctx.bezierCurveTo(-s*1.3, s*0.3, -s*0.9, -s*0.9, 0, -s*0.35); ctx.fill(); }
+function drawStar(ctx, r) { ctx.beginPath(); for (let i = 0; i < 10; i++) { const rad = i % 2 === 0 ? r : r * 0.45; const ang = (i * 36 - 90) * Math.PI / 180; const x = Math.cos(ang) * rad, y = Math.sin(ang) * rad; if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y); } ctx.closePath(); ctx.fill(); }
+function drawSparkle(ctx, s) { ctx.beginPath(); ctx.moveTo(0, -s); ctx.lineTo(s*0.25, -s*0.25); ctx.lineTo(s, 0); ctx.lineTo(s*0.25, s*0.25); ctx.lineTo(0, s); ctx.lineTo(-s*0.25, s*0.25); ctx.lineTo(-s, 0); ctx.lineTo(-s*0.25, -s*0.25); ctx.closePath(); ctx.fill(); }
+function drawBalloon(ctx, s, color) { ctx.beginPath(); ctx.ellipse(0, 0, s*0.42, s*0.55, 0, 0, Math.PI * 2); ctx.fill(); ctx.strokeStyle = color; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(0, s*0.55); ctx.bezierCurveTo(s*0.25, s*0.8, -s*0.25, s*1.0, 0, s*1.4); ctx.stroke(); }
+function drawPetal(ctx, s) { ctx.beginPath(); ctx.ellipse(0, 0, s*0.5, s*0.85, 0, 0, Math.PI * 2); ctx.fill(); }
+
+function launchConfetti(colors, type) {
+  const canvas = document.getElementById('confetti');
+  const ctx = canvas.getContext('2d');
+  const resize = () => { canvas.width = innerWidth; canvas.height = innerHeight; };
+  resize();
+  window.addEventListener('resize', resize);
+  if (confettiRAF) cancelAnimationFrame(confettiRAF);
+  const particles = [];
+  const count = type === 'emojis' ? 90 : 170;
+  for (let i = 0; i < count; i++) {
+    const p = {
+      x: Math.random() * canvas.width, y: Math.random() * -canvas.height,
+      vy: 2 + Math.random() * 3.5, vx: -1.2 + Math.random() * 2.4,
+      rot: Math.random() * Math.PI * 2, vr: -0.15 + Math.random() * 0.3,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      w: 6 + Math.random() * 8, h: 8 + Math.random() * 10
+    };
+    if (type === 'emojis') { p.emoji = CONFETTI_EMOJIS[Math.floor(Math.random() * CONFETTI_EMOJIS.length)]; p.w = p.h = 20 + Math.random() * 14; }
+    else if (type === 'mixed') p.shape = Math.random() > 0.5 ? 'rect' : 'circle';
+    else p.shape = type;
+    particles.push(p);
+  }
+  const start = performance.now();
+  function animate(now) {
+    const elapsed = now - start;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (const p of particles) {
+      p.x += p.vx; p.y += p.vy; p.vy += 0.02; p.rot += p.vr;
+      if (p.y > canvas.height + 50) { p.y = -30; p.x = Math.random() * canvas.width; p.vy = 2 + Math.random() * 3; }
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot); ctx.fillStyle = p.color;
+      if (p.shape === 'rect') ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+      else if (p.shape === 'circle') { ctx.beginPath(); ctx.arc(0, 0, p.w/2, 0, Math.PI*2); ctx.fill(); }
+      else if (p.shape === 'hearts') drawHeart(ctx, p.w * 0.7);
+      else if (p.shape === 'stars') drawStar(ctx, p.w * 0.7);
+      else if (p.shape === 'sparkles') drawSparkle(ctx, p.w * 0.7);
+      else if (p.shape === 'balloons') drawBalloon(ctx, p.w * 0.7, p.color);
+      else if (p.shape === 'petals') drawPetal(ctx, p.w * 0.6);
+      else if (p.shape === 'emojis') { ctx.font = p.w + 'px serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(p.emoji, 0, 0); }
+      ctx.restore();
+    }
+    if (elapsed < 10000) confettiRAF = requestAnimationFrame(animate);
+    else ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+  confettiRAF = requestAnimationFrame(animate);
+}
+
+let currentAudioCtx = null, musicPlaying = false;
+function stopMusic() { if (currentAudioCtx) { try { currentAudioCtx.close(); } catch {} currentAudioCtx = null; } musicPlaying = false; }
+function playHappyBirthday() {
+  stopMusic();
+  try { currentAudioCtx = new (window.AudioContext || window.webkitAudioContext)(); } catch { return; }
+  const ctx = currentAudioCtx;
+  const notes = { 'G4':392,'A4':440,'B4':493.88,'C5':523.25,'D5':587.33,'E5':659.25,'F5':698.46,'G5':783.99 };
+  const melody = [['G4',1],['G4',1],['A4',2],['G4',2],['C5',2],['B4',4],['G4',1],['G4',1],['A4',2],['G4',2],['D5',2],['C5',4],['G4',1],['G4',1],['G5',2],['E5',2],['C5',2],['B4',2],['A4',4],['F5',1],['F5',1],['E5',2],['C5',2],['D5',2],['C5',4]];
+  const tempo = 0.32;
+  let time = ctx.currentTime + 0.1;
+  melody.forEach(([note, beats]) => {
+    const dur = beats * tempo;
+    const osc = ctx.createOscillator(); const gain = ctx.createGain();
+    osc.type = 'triangle'; osc.frequency.value = notes[note];
+    gain.gain.setValueAtTime(0, time);
+    gain.gain.linearRampToValueAtTime(0.13, time + 0.04);
+    gain.gain.exponentialRampToValueAtTime(0.001, time + dur * 0.95);
+    osc.connect(gain); gain.connect(ctx.destination);
+    osc.start(time); osc.stop(time + dur);
+    time += dur * 0.98;
+  });
+  musicPlaying = true;
+}
+function playPop() {
+  if (!currentSoundEffects) return;
+  try {
+    const c = new (window.AudioContext || window.webkitAudioContext)();
+    const o = c.createOscillator(); const g = c.createGain();
+    o.type = 'sine';
+    o.frequency.setValueAtTime(400, c.currentTime);
+    o.frequency.exponentialRampToValueAtTime(1200, c.currentTime + 0.1);
+    g.gain.setValueAtTime(0.15, c.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001, c.currentTime + 0.15);
+    o.connect(g); g.connect(c.destination);
+    o.start(); o.stop(c.currentTime + 0.2);
+    setTimeout(() => c.close(), 400);
+  } catch {}
+}
+function playBlow() {
+  if (!currentSoundEffects) return;
+  try {
+    const c = new (window.AudioContext || window.webkitAudioContext)();
+    const bufSize = c.sampleRate * 0.3;
+    const buf = c.createBuffer(1, bufSize, c.sampleRate);
+    const data = buf.getChannelData(0);
+    for (let i = 0; i < bufSize; i++) data[i] = (Math.random() * 2 - 1) * (1 - i/bufSize) * 0.3;
+    const src = c.createBufferSource(); src.buffer = buf;
+    const g = c.createGain(); g.gain.value = 0.4;
+    const filt = c.createBiquadFilter(); filt.type = 'lowpass'; filt.frequency.value = 800;
+    src.connect(filt); filt.connect(g); g.connect(c.destination);
+    src.start();
+    setTimeout(() => c.close(), 500);
+  } catch {}
+}
+
+/* MİKROFON */
+let micStream = null, micAnalyser = null, micRAF = null, blowActive = false;
+async function startBlowDetection() {
+  if (blowActive) return;
+  const blowBtn = document.getElementById('blowBtn');
+  const hintEl = document.getElementById('cakeHint');
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+    showToast('Mikrofon desteklenmiyor', '#f59e0b');
+    return;
+  }
+  try {
+    micStream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const src = ctx.createMediaStreamSource(micStream);
+    micAnalyser = ctx.createAnalyser();
+    micAnalyser.fftSize = 512;
+    micAnalyser.smoothingTimeConstant = 0.6;
+    src.connect(micAnalyser);
+    const data = new Uint8Array(micAnalyser.frequencyBinCount);
+    blowActive = true;
+    blowBtn.classList.add('listening');
+    blowBtn.textContent = '🎤 Üflüyorum...';
+    hintEl.textContent = 'Mikrofona üfle! 🎤';
+    hintEl.classList.remove('hidden');
+    const startTime = Date.now();
+    function check() {
+      if (!blowActive) return;
+      if (Date.now() - startTime > 15000) {
+        stopBlowDetection();
+        showToast('Süre doldu, tekrar dene', '#f59e0b');
+        return;
+      }
+      micAnalyser.getByteFrequencyData(data);
+      let sum = 0;
+      for (let i = 0; i < data.length; i++) sum += data[i];
+      const avg = sum / data.length;
+      if (avg > 45) {
+        blowAllCandles();
+        return;
+      }
+      micRAF = requestAnimationFrame(check);
+    }
+    check();
+  } catch (err) {
+    console.error(err);
+    showToast('Mikrofon izni gerekli', '#ef4444');
+    blowActive = false;
+  }
+}
+function stopBlowDetection() {
+  blowActive = false;
+  if (micRAF) cancelAnimationFrame(micRAF);
+  if (micStream) { micStream.getTracks().forEach(t => t.stop()); micStream = null; }
+  micAnalyser = null;
+  const blowBtn = document.getElementById('blowBtn');
+  if (blowBtn) { blowBtn.classList.remove('listening'); blowBtn.textContent = '🎤 Üfle'; }
+}
+function blowAllCandles() {
+  stopBlowDetection();
+  const cakeEl = document.getElementById('bcCake');
+  const hintEl = document.getElementById('cakeHint');
+  const candles = cakeEl.querySelectorAll('.candle:not(.blown)');
+  candles.forEach((c, i) => {
+    setTimeout(() => { c.classList.add('blown'); playBlow(); }, i * 200);
+  });
+  setTimeout(() => {
+    if (currentCard) launchConfetti(currentCard.theme.confetti, currentCard.data.ct || 'mixed');
+    hintEl.textContent = '🎉 Dileğin gerçek olsun!';
+    playPop();
+    if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
+  }, candles.length * 200 + 400);
+}
+
+let currentCard = null;
+let currentSoundEffects = true;
+
+function buildFloatingStickers(stickers) {
+  const wrap = document.getElementById('floatingStickers');
+  wrap.innerHTML = '';
+  if (!stickers || !stickers.length) return;
+  const positions = [{ top: '8%', left: '6%' },{ top: '16%', right: '8%' },{ bottom: '20%', left: '10%' },{ bottom: '10%', right: '6%' },{ top: '50%', left: '3%' }];
+  const anims = ['floatA','floatB','floatC','floatA','floatB'];
+  const durs = ['3.6s','4.1s','3.9s','4.4s','4s'];
+  const delays = ['0s','0.4s','0.8s','1.2s','0.2s'];
+  stickers.slice(0, 5).forEach((emoji, i) => {
+    const el = document.createElement('span');
+    el.className = 'floating-sticker';
+    el.textContent = emoji;
+    const pos = positions[i];
+    Object.assign(el.style, { top: pos.top || '', left: pos.left || '', right: pos.right || '', bottom: pos.bottom || '', animation: `${anims[i]} ${durs[i]} ease-in-out ${delays[i]} infinite` });
+    wrap.appendChild(el);
+  });
+}
+
+function showCardView(data) {
+  document.getElementById('editor').classList.add('hidden');
+  const cv = document.getElementById('cardView');
+  cv.classList.remove('hidden');
+  window.scrollTo(0, 0);
+  const t = THEMES[data.t] || THEMES.pembe;
+  cv.style.background = t.bg;
+  buildFloatingStickers(data.s);
+  currentCard = { data, theme: t };
+  currentSoundEffects = data.se !== 0;
+  document.getElementById('giftBox').textContent = data.gb || '🎁';
+  document.getElementById('giftStage').classList.remove('hidden');
+  document.getElementById('cardStage').classList.add('hidden');
+  if (data.mu) document.getElementById('musicBtn').classList.remove('hidden');
+  if (data.ao) setTimeout(() => openCard(), 400);
+}
+
+function typeWriter(el, text, speed = 35) {
+  return new Promise(resolve => {
+    el.textContent = '';
+    el.classList.add('typing');
+    let i = 0;
+    const timer = setInterval(() => {
+      el.textContent = text.slice(0, ++i);
+      if (i >= text.length) {
+        clearInterval(timer);
+        setTimeout(() => el.classList.remove('typing'), 600);
+        resolve();
+      }
+    }, speed);
+  });
+}
+
+function openCard() {
+  if (!currentCard) return;
+  const { data, theme } = currentCard;
+  const card = document.getElementById('birthdayCard');
+
+  applyCardDesign(card, {
+    theme: data.t, layout: data.ly || 'classic', aspect: data.ar || 'portrait',
+    accent: data.ac, cardBg: data.cb, textColor: data.tc,
+    borderRadius: data.br, titleSize: data.ts, nameSize: data.ns, msgSize: data.ms,
+    titleWeight: data.twt, nameWeight: data.nwt, msgWeight: data.mwt,
+    letterSpacing: data.ls, lineHeight: data.lh, textEffect: data.te,
+    cardTilt: data.tl, cardShadow: data.csh, photoSize: data.pz
+  });
+  applyPattern(document.getElementById('bcPattern'), data.pt || 'none');
+
+  card.className = 'birthday-card layout-' + (data.ly || 'classic');
+  if (data.ar === 'square') card.classList.add('ar-square');
+  else if (data.ar === 'story') card.classList.add('ar-story');
+  else if (data.ar === 'landscape') card.classList.add('ar-landscape');
+  if (data.te && data.te !== 'none') card.classList.add('effect-' + data.te);
+  card.classList.add('anim-' + (data.ca || 'pop'));
+  void card.offsetWidth;
+
+  const photoWrap = document.getElementById('bcPhotoWrap');
+  const photo = document.getElementById('bcPhoto');
+  if (data.ph) {
+    photoWrap.classList.add('has-photo');
+    photo.src = data.ph;
+    applyPhoto(photo, { photoShape: data.psh, photoBorderWidth: data.pbw, photoBorderColor: data.pbc });
+  } else photoWrap.classList.remove('has-photo');
+
+  document.getElementById('bcEmoji').textContent = data.e || '🎂';
+  if (data.ly === 'polaroid') document.getElementById('bcEmoji').style.display = 'none';
+
+  const ageEl = document.getElementById('bcAge');
+  if (data.a) { ageEl.textContent = `Nice ${data.a} yıllara! 🎉`; ageEl.classList.remove('hidden'); }
+  else ageEl.classList.add('hidden');
+
+  const dateEl = document.getElementById('bcDate');
+  if (data.dt) { dateEl.textContent = data.dt; dateEl.classList.remove('hidden'); }
+  else dateEl.classList.add('hidden');
+
+  const titleEl = document.getElementById('bcTitle');
+  titleEl.textContent = data.ti || 'İyi ki doğdun';
+  titleEl.style.fontFamily = FONTS[data.tf] ? FONTS[data.tf].css : FONTS.pacifico.css;
+  titleEl.style.textAlign = data.al || 'center';
+
+  const nameEl = document.getElementById('bcName');
+  nameEl.textContent = data.to || 'Sen';
+  nameEl.style.fontFamily = FONTS[data.nf] ? FONTS[data.nf].css : FONTS.pacifico.css;
+  nameEl.style.textAlign = data.al || 'center';
+
+  const msgEl = document.getElementById('bcMsg');
+  msgEl.style.fontFamily = FONTS[data.mf] ? FONTS[data.mf].css : FONTS.poppins.css;
+  msgEl.style.textAlign = data.al || 'center';
+  if (data.m) { msgEl.style.display = ''; msgEl.textContent = data.m; }
+  else msgEl.style.display = 'none';
+
+  document.getElementById('bcFromName').textContent = data.f || 'Bir arkadaşın';
+
+  const cakeEl = document.getElementById('bcCake');
+  const hintEl = document.getElementById('cakeHint');
+  const blowBtn = document.getElementById('blowBtn');
+
+  if (data.cd) {
+    cakeEl.classList.remove('hidden');
+    hintEl.classList.remove('hidden');
+    hintEl.textContent = 'Mumlara dokun veya üfle 🕯️';
+    if (data.mb) { blowBtn.classList.remove('hidden'); blowBtn.onclick = () => startBlowDetection(); }
+    else blowBtn.classList.add('hidden');
+    cakeEl.querySelectorAll('.candle').forEach(c => {
+      c.classList.remove('blown');
+      c.onclick = () => {
+        if (c.classList.contains('blown')) return;
+        c.classList.add('blown');
+        playBlow();
+        const remaining = cakeEl.querySelectorAll('.candle:not(.blown)').length;
+        if (remaining === 0) {
+          setTimeout(() => {
+            launchConfetti(theme.confetti, data.ct || 'mixed');
+            hintEl.textContent = '🎉 Dileğin gerçek olsun!';
+            playPop();
+            blowBtn.classList.add('hidden');
+            if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
+          }, 300);
+        }
+      };
+    });
+  } else {
+    cakeEl.classList.add('hidden');
+    hintEl.classList.add('hidden');
+    blowBtn.classList.add('hidden');
+  }
+
+  document.getElementById('giftStage').classList.add('hidden');
+  document.getElementById('cardStage').classList.remove('hidden');
+  launchConfetti(theme.confetti, data.ct || 'mixed');
+
+  if (data.tw && data.m) setTimeout(() => typeWriter(msgEl, data.m, 30), 800);
+  if (data.mu) { playHappyBirthday(); const mb = document.getElementById('musicBtn'); mb.textContent = '🔊'; mb.classList.add('playing'); }
+}
+
+document.getElementById('openCardBtn').addEventListener('click', () => { playPop(); openCard(); });
+document.getElementById('giftBox').addEventListener('click', () => { playPop(); openCard(); });
+document.getElementById('musicBtn').addEventListener('click', function() {
+  if (musicPlaying) { stopMusic(); this.textContent = '🔇'; this.classList.remove('playing'); }
+  else { playHappyBirthday(); this.textContent = '🔊'; this.classList.add('playing'); }
+});
+document.getElementById('createOwnBtn').addEventListener('click', (e) => {
+  e.preventDefault();
+  stopBlowDetection();
+  stopMusic();
+  document.getElementById('cardView').classList.add('hidden');
+  document.getElementById('editor').classList.remove('hidden');
+  window.scrollTo(0, 0);
+});
+
+function init() {
+  if (window.__CARD_CONFIG__) { showCardView(window.__CARD_CONFIG__); return; }
+  const hash = location.hash;
+  if (hash.startsWith('#k=')) {
+    try { const data = JSON.parse(fromB64Url(hash.slice(3))); showCardView(data); return; }
+    catch (err) { console.warn('Kart okunamadı:', err); }
+  }
+  renderEnvInfo();
+  buildPresets(); buildThemePicker(); buildPatternPicker(); buildEmojiPicker(); buildStickerPicker();
+  buildFontPicker('titleFontPicker', 'titleFont');
+  buildFontPicker('nameFontPicker', 'nameFont');
+  buildFontPicker('msgFontPicker', 'msgFont');
+  syncColorPickers(); updatePhotoUI();
+
+  const savedBase = localStorage.getItem('cardBaseUrl') || '';
+  const detectedBase = detectBaseUrl();
+  document.getElementById('baseUrlInput').value = savedBase || detectedBase;
+  updateBaseUrlStatus();
+  document.getElementById('shareMsgInput').value = state.shareMsg;
+
+  updatePreview();
+}
+init();
+</script>
+</body>
+</html>
